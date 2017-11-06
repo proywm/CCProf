@@ -1,8 +1,11 @@
 # CCProf
 ### Prerequisite? ###
+hpcstruct from hpctoolkit. To install dependency run:
 
-hpcstruct from hpctoolkit
+>>sh installDependencies.sh
 
 ### Build? ###
+
+>>sh papiAllBuild.sh
 
 ### running? ###
