@@ -1,6 +1,12 @@
 # CCProf
 ### Prerequisite? ###
-hpcstruct from hpctoolkit. Set PATH to point to hpctoolkit installation directory.
+
+1. hpcstruct from hpctoolkit. Set PATH to point to hpctoolkit installation directory.
+2. numpy
+3. pandas
+4. pickle
+5. sklearn
+6. plotly
 
 ### Build? ###
 
