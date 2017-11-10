@@ -7,6 +7,8 @@
 4. pickle
 5. sklearn
 6. plotly
+7. libxml2
+    git clone git://git.gnome.org/libxml2
 
 ### Build? ###
 
