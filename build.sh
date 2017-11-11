@@ -12,6 +12,6 @@ cd LoopAnalyzer
 git clone git://git.gnome.org/libxml2
 cd libxml2
 sh autogen.sh
-make
+make -j8
 cd ..
-make
+make -j8
