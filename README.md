@@ -2,6 +2,7 @@
 ### Prerequisite? ###
 
 1. hpcstruct from hpctoolkit. Set PATH to point to hpctoolkit installation directory.
+python2.7
 2. numpy
 3. pandas
 4. pickle
@@ -9,6 +10,18 @@
 6. plotly
 7. libxml2
     git clone git://git.gnome.org/libxml2
+    
+### Software Depebdencies  #########
+cmake version 2.8.10 or later
+gcc (GCC) 4.8.5 or later
+python2.7
+pip
+git client
+Linux kernel 3.10.0 or later
+hpctoolkit (A script is provided to download and install. Run with sudo to install in default location. Otherwise set path manually)
+
+### Hardware Depebdencies  #########
+
 
 ### Build? ###
 
