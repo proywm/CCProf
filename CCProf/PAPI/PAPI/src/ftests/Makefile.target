@@ -1,0 +1,18 @@
+# File: ftests/Makefile
+# CVS:  $Id$
+prefix = /home/proy/CCProf/CCProf/PAPI/PAPI/install
+exec_prefix = ${prefix}
+PACKAGE_TARNAME = papi
+datadir = ${prefix}/share/${PACKAGE_TARNAME}
+testlibdir = $(datadir)/testlib
+INCLUDE = -I. -I${prefix}/include -I$(testlibdir)
+LIBDIR  = ${exec_prefix}/lib
+PAPILIB = $(LIBDIR)/libpapi.a
+TESTLIB = $(testlibdir)/libtestlib.a
+LDFLAGS = -ldl
+CC	= gcc
+F77	= gfortran
+CC_R	= $(CC) -pthread
+CFLAGS	=  -g -DSTATIC_PAPI_EVENTS_TABLE -DPEINCLUDE=\"libpfm4/include/perfmon/perf_event.h\" -D_REENTRANT -D_GNU_SOURCE -DUSE_COMPILER_TLS  -Wall 
+OMPCFLGS = -fopenmp
+FFLAGS	=   -Dlinux -Wall -ffixed-line-length-132

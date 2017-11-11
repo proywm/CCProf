@@ -1,0 +1,240 @@
+====================
+What is Libmonitor
+====================
+
+$Id: README 145 2013-01-02 20:34:01Z krentel $
+
+Libmonitor is a library providing callback functions for the begin and
+end of processes, threads, fork, exec, etc.  It provides a layer on
+which to build process monitoring tools such as profilers.
+
+For example, Rice HPCToolkit uses libmonitor to turn on profiling at
+the start of processes and threads, using the monitor_init_process()
+and monitor_init_thread() callback functions, and then turns profiling
+off with monitor_fini_process() and monitor_fini_thread().  In this
+case, libmonitor separates the job of hooking the application program
+from the profiling tasks.  See src/monitor.h for the declarations of
+the callback functions.
+
+Libmonitor is hosted by the SciDAC Outreach Center.
+
+    https://outreach.scidac.gov/projects/libmonitor/
+
+Libmonitor is available via anonymous svn checkout with the usual
+trunk, tags and branches layout.  Note that the SciDAC Outreach svn
+server uses https for anonymous checkout.
+
+    svn co https://outreach.scidac.gov/svn/libmonitor/trunk
+
+Libmonitor is a rewrite from scratch of Philip Mucci's monitor at the
+University of Tennessee to allow running monitor on both dynamic and
+static binaries and on both Linux and non-Linux systems.
+
+    http://icl.cs.utk.edu/~mucci/monitor/
+
+Libmonitor is part of HPCToolkit and is supported by the Center for
+Scalable Application Development Software (CScADS) and the Performance
+Engineering Research Institute (PERI).
+
+    http://hpctoolkit.org/
+
+Libmonitor is Copyright (c) 2007-2013, Rice University and is licensed
+under a 3-clause BSD license.  See the file LICENSE for details.
+
+Send bug reports to: hpctoolkit-forum@rice.edu
+
+======================
+How Libmonitor Works
+======================
+
+Libmonitor inserts itself into an application program either
+dynamically with LD_PRELOAD or else statically at link time.  In the
+dynamic case, monitor uses a shared library, libmonitor.so, with
+definitions for __libc_start_main, _exit, fork, pthread_create, etc.
+It uses LD_PRELOAD to override the application's calls to these
+functions and uses dlopen to find the real versions of these
+functions.  See ld.so(8).
+
+The dynamic method can monitor unmodified binaries, but they must be
+dynamically-linked, since LD_PRELOAD does not work for statically
+linked binaries.  More importantly, libc must pass control from
+_start() to main() via __libc_start_main().  GNU libc on Linux uses
+__libc_start_main, but BSD and other systems, although they support
+LD_PRELOAD, do not use __libc_start_main.  So, the dynamic case is
+pretty much limited to GNU/Linux systems.
+
+In the static case, monitor uses an library file, libmonitor_wrap.a,
+which is linked into the application statically.  libmonitor_wrap.a
+contains definitions of __wrap_main, __wrap__exit, etc, and is linked
+into the application with the --wrap linker option so that the
+application's use of main is linked to monitor's definition of
+__wrap_main, etc.  See ld(1).
+
+The static method not require re-compiling the application program
+into .o files, but it does require re-linking the application's object
+files with libmonitor_wrap.a.  However, the static method can be used
+on BSD and other systems that don't use __libc_start_main, and on
+systems such as Catamount that don't run dynamically-linked binaries.
+
+In either case, the libmonitor client should write its own versions of
+the callback functions, or a subset of them, which libmonitor will
+then call.
+
+=========================
+How to Build Libmonitor
+=========================
+
+Libmonitor uses the autoconf and automake build procedure.  From the
+top-level directory (the one containing LICENSE and this README, not
+the src directory), run:
+
+    ./configure --prefix=/path/to/install
+    make
+    make install
+
+In addition to the standard configure options, libmonitor provides the
+following additional options.  See ./configure --help.
+
+    --enable-debug
+	When monitor runs and the environment includes the variable
+	MONITOR_DEBUG, then it writes debugging messages to stderr
+	indicating when it gains control at the begin and end of
+	processes, threads, etc.  This option has the effect of always
+	turning on MONITOR_DEBUG.  Default=no.
+
+    --enable-link-preload
+        When enabled, monitor builds libmonitor.so and the monitor-run
+	script for running monitor dynamically.  This option requires
+	dlopen and __libc_start_main and will be automatically
+	disabled if they are not available.  Default=yes.
+
+    --enable-link-static
+	When enabled, monitor builds libmonitor_wrap.a and the
+	monitor-link script for running monitor statically.
+	Note: this option is different from --enable-static, a builtin
+	configure option for building the libmonitor.a library (which
+	monitor doesn't use).  Default=yes.
+
+    --enable-dlfcn
+    --enable-fork
+    --enable-mpi
+    --enable-pthreads
+    --enable-signals
+	These options include support for monitoring dlopen, fork and
+	exec, MPI, pthreads and signals.  Even when enabled, configure
+	will search for the relevant libraries and functions and will
+	disable them if they are not found.  Default=yes.
+	Note: --enable-dlopen is already used by configure for
+	something else, so we use dlfcn (named after dlfcn.h) to
+	enable support for dlopen.
+
+Note: the MPI support is now generic and attempts to work with any MPI
+library for C, C++ or Fortran programs.  Since each MPI library
+defines its own MPI_Comm and MPI_COMM_WORLD, monitor waits for the
+application program to call MPI_Comm_rank() and uses its comm value to
+determine size/rank.  The advantage of this approach is that monitor
+should work with any MPI library.  The disadvantage of this approach
+is that monitor depends on the application program calling
+MPI_Comm_rank() and won't know the size/rank until that happens.
+
+=======================
+How to Run Libmonitor
+=======================
+
+Libmonitor provides hooks into an application program, but by itself,
+monitor doesn't really do anything.  The monitor client needs to
+define its own callback functions to do anything useful.  Libmonitor
+includes default versions of these functions defined as weak symbols,
+allowing monitor's client to override them.  The file src/callback.c
+may be used as a starting point for this.
+
+To run monitor dynamically, compile the client's callback functions
+into a .so shared library.  Edit the monitor-run script to add the
+callback.so file to the list of preloaded files.  Then, run the
+program with:
+
+    monitor-run [-i file.so] program arg ...
+
+The -i option is another way of inserting the client's callback
+functions, instead of editing the monitor-run script.  The dynamic
+method only works with a dynamically-linked ELF program.  It also
+requires __libc_start_main from libc, and so it is pretty much limited
+to Linux systems.
+
+In the static case, compile the callback functions into a .o object
+file, and edit the monitor-link script to add the callback.o file to
+the list of insert files.  Relink the application program with the
+monitor-link script, and provide the same command line used to build
+the application as arguments to the script, beginning with the
+compiler.
+
+    monitor-link [-i file.o] compiler file ...
+
+Again, the -i option is another way of adding the client's callback
+functions.  The arguments to the script should be the final step that
+produces a runnable program.  The files can be source or object files,
+and the resulting program can be fully-static or dynamically-linked,
+as long as libmonitor and the callback functions are linked in
+statically.
+
+Note: sometimes monitor-link will fail with undefined references to
+some of monitor's wrapped symbols.  See the "Known Issues" section
+below for a workaround.
+
+Note: the callback.c file and the monitor-run and monitor-link scripts
+are in the public domain.  These files may be useful as a starting
+point for writing and linking the client's callback functions.
+
+=========================
+Platform-Specific Notes
+=========================
+
+Libmonitor has been successfully tested on x86, x86_64 and ia64
+platforms, and on Linux and BSD systems.  It currently doesn't build
+on Solaris due to some header file issues, but that should be fixable.
+Although the dynamic method is limited to GNU/Linux systems with
+__libc_start_main, the static method should work on most unix systems.
+
+On Catamount, one of our original motivations for rewriting monitor,
+compile monitor with gcc (the default) and disable support for dlfcn,
+fork and pthreads, since these functions are not available on the
+compute nodes.
+
+    ./configure --prefix=/path/to/install  \
+        --disable-dlfcn  \
+        --disable-fork   \
+        --disable-pthreads
+
+Then, link the application with the cc script to produce a binary that
+will run on the compute nodes.
+
+    monitor-link cc --target=catamount file.o ...
+
+==============
+Known Issues
+==============
+
+When linking monitor statically, sometimes there will be undefined
+references to some of the wrapped symbols.  For example, on Compute
+Node Linux:
+
+    ./monitor-link cc hello.c
+    /opt/xt-asyncpe/1.0/bin/cc: INFO: linux target is being used
+    hello.c:
+    /opt/pgi/7.1.6/linux86-64/7.1-6/lib/libpgc.a(trace.o)(.text+0xfe):
+    In function `__pgi_abort': undefined reference to `__wrap_system'
+
+The problem is that the PGI compiler is adding libpgc.a (with
+undefined references to system) on the link line.  In this case,
+hello.c does not reference system itself and libpgc.a comes after
+libmonitor_wrap.a.  Thus, the linker fails to pull in the necessary
+objects from libmonitor's archive and reports that __wrap_system is
+undefined.
+
+This problem is very difficult for monitor to fix, but there is a work
+around.  Use the -u option to monitor-link to add an undefined
+reference to 'system' early on the link line, thus forcing the linker
+to pull in the necessary object.
+
+    ./monitor-link -u system cc hello.c
+

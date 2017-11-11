@@ -1,0 +1,104 @@
+/* config.h.in.  Generated from configure.ac by autoheader.  */
+
+/* Define to 1 if you have the <dlfcn.h> header file. */
+#undef HAVE_DLFCN_H
+
+/* Define to 1 if you have the <inttypes.h> header file. */
+#undef HAVE_INTTYPES_H
+
+/* Define to 1 if you have the <memory.h> header file. */
+#undef HAVE_MEMORY_H
+
+/* Define to 1 if you have the <stdint.h> header file. */
+#undef HAVE_STDINT_H
+
+/* Define to 1 if you have the <stdlib.h> header file. */
+#undef HAVE_STDLIB_H
+
+/* Define to 1 if you have the <strings.h> header file. */
+#undef HAVE_STRINGS_H
+
+/* Define to 1 if you have the <string.h> header file. */
+#undef HAVE_STRING_H
+
+/* Define to 1 if you have the <sys/stat.h> header file. */
+#undef HAVE_SYS_STAT_H
+
+/* Define to 1 if you have the <sys/types.h> header file. */
+#undef HAVE_SYS_TYPES_H
+
+/* Define to 1 if you have the <unistd.h> header file. */
+#undef HAVE_UNISTD_H
+
+/* Define to the sub-directory in which libtool stores uninstalled libraries.
+   */
+#undef LT_OBJDIR
+
+/* Compile for Blue Gene/Q compute node. */
+#undef MONITOR_BLUE_GENE_Q
+
+/* List of signals kept open for the client. */
+#undef MONITOR_CLIENT_SIGNALS_LIST
+
+/* Debug mode is always on. */
+#undef MONITOR_DEBUG_DEFAULT_ON
+
+/* pthread_cleanup_push is a function, not a macro. */
+#undef MONITOR_PTHREAD_CLEANUP_PUSH_IS_FCN
+
+/* pthread_equal is a function, not a macro. */
+#undef MONITOR_PTHREAD_EQUAL_IS_FCN
+
+/* Libc start main type is ppc. */
+#undef MONITOR_START_MAIN_PPC
+
+/* Include support for dlopen. */
+#undef MONITOR_USE_DLOPEN
+
+/* Include support for fork and exec families. */
+#undef MONITOR_USE_FORK
+
+/* Include support for memleak. */
+#undef MONITOR_USE_MEMLEAK
+
+/* Include support for MPI. */
+#undef MONITOR_USE_MPI
+
+/* Include support for pthreads. */
+#undef MONITOR_USE_PTHREADS
+
+/* Include support for signals. */
+#undef MONITOR_USE_SIGNALS
+
+/* Name of package */
+#undef PACKAGE
+
+/* Define to the address where bug reports for this package should be sent. */
+#undef PACKAGE_BUGREPORT
+
+/* Define to the full name of this package. */
+#undef PACKAGE_NAME
+
+/* Define to the full name and version of this package. */
+#undef PACKAGE_STRING
+
+/* Define to the one symbol short name of this package. */
+#undef PACKAGE_TARNAME
+
+/* Define to the home page for this package. */
+#undef PACKAGE_URL
+
+/* Define to the version of this package. */
+#undef PACKAGE_VERSION
+
+/* The size of `void *', as computed by sizeof. */
+#undef SIZEOF_VOID_P
+
+/* Define to 1 if you have the ANSI C header files. */
+#undef STDC_HEADERS
+
+/* SVN revision. */
+#undef SVN_REVISION
+
+/* Version number of package */
+#undef VERSION

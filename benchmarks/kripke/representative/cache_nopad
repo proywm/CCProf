@@ -1,0 +1,8 @@
+
+      12,320,992,859 L1-DCACHE-LOADS (0.00% scaling, ena=7,592,662,551, run=7,592,662,551)
+
+       1,333,252,899 L1-DCACHE-LOAD-MISSES (0.00% scaling, ena=7,592,662,551, run=7,592,662,551)
+
+              22,533 LLC_MISSES (0.00% scaling, ena=7,592,662,551, run=7,592,662,551)
+
+         758,422,055 LLC_REFERENCES (0.00% scaling, ena=7,592,662,551, run=7,592,662,551)

@@ -1,0 +1,137 @@
+#define PAD 0+4
+ referrence address 0x7fffb7198010 to 0x7ffff71f8024
+ input itemset 0x7fff77177010 to 0x7fffb7197014
+Start Needleman-Wunsch
+Num of threads: 1
+Processing top-left matrix
+Processing bottom-right matrix
+Total time: 13.586 seconds
+#define PAD 0+4+4
+ referrence address 0x7fffb7158010 to 0x7ffff71f8034
+ input itemset 0x7fff77137010 to 0x7fffb7157014
+Start Needleman-Wunsch
+Num of threads: 1
+Processing top-left matrix
+Processing bottom-right matrix
+Total time: 13.622 seconds
+#define PAD 0+4+4+4
+ referrence address 0x7fffb7118010 to 0x7ffff71f8044
+ input itemset 0x7fff770f7010 to 0x7fffb7117014
+Start Needleman-Wunsch
+Num of threads: 1
+Processing top-left matrix
+Processing bottom-right matrix
+Total time: 13.366 seconds
+#define PAD 0+4+4+4+4
+ referrence address 0x7fffb70d8010 to 0x7ffff71f8054
+ input itemset 0x7fff770b7010 to 0x7fffb70d7014
+Start Needleman-Wunsch
+Num of threads: 1
+Processing top-left matrix
+Processing bottom-right matrix
+Total time: 13.584 seconds
+#define PAD 0+4+4+4+4+4
+ referrence address 0x7fffb7098010 to 0x7ffff71f8064
+ input itemset 0x7fff77077010 to 0x7fffb7097014
+Start Needleman-Wunsch
+Num of threads: 1
+Processing top-left matrix
+Processing bottom-right matrix
+Total time: 13.591 seconds
+#define PAD 0+4+4+4+4+4+4
+ referrence address 0x7fffb7058010 to 0x7ffff71f8074
+ input itemset 0x7fff77037010 to 0x7fffb7057014
+Start Needleman-Wunsch
+Num of threads: 1
+Processing top-left matrix
+Processing bottom-right matrix
+Total time: 13.633 seconds
+#define PAD 0+4+4+4+4+4+4+4
+ referrence address 0x7fffb7018010 to 0x7ffff71f8084
+ input itemset 0x7fff76ff7010 to 0x7fffb7017014
+Start Needleman-Wunsch
+Num of threads: 1
+Processing top-left matrix
+Processing bottom-right matrix
+Total time: 13.317 seconds
+#define PAD 0+4+4+4+4+4+4+4+4
+ referrence address 0x7fffb6fd8010 to 0x7ffff71f8094
+ input itemset 0x7fff76fb7010 to 0x7fffb6fd7014
+Start Needleman-Wunsch
+Num of threads: 1
+Processing top-left matrix
+Processing bottom-right matrix
+Total time: 13.624 seconds
+#define PAD 0+4+4+4+4+4+4+4+4+4
+ referrence address 0x7fffb6f98010 to 0x7ffff71f80a4
+ input itemset 0x7fff76f77010 to 0x7fffb6f97014
+Start Needleman-Wunsch
+Num of threads: 1
+Processing top-left matrix
+Processing bottom-right matrix
+Total time: 13.660 seconds
+#define PAD 0+4+4+4+4+4+4+4+4+4+4
+ referrence address 0x7fffb6f58010 to 0x7ffff71f80b4
+ input itemset 0x7fff76f37010 to 0x7fffb6f57014
+Start Needleman-Wunsch
+Num of threads: 1
+Processing top-left matrix
+Processing bottom-right matrix
+Total time: 13.712 seconds
+#define PAD 0+4+4+4+4+4+4+4+4+4+4+4
+ referrence address 0x7fffb6f18010 to 0x7ffff71f80c4
+ input itemset 0x7fff76ef7010 to 0x7fffb6f17014
+Start Needleman-Wunsch
+Num of threads: 1
+Processing top-left matrix
+Processing bottom-right matrix
+Total time: 13.345 seconds
+#define PAD 0+4+4+4+4+4+4+4+4+4+4+4+4
+ referrence address 0x7fffb6ed8010 to 0x7ffff71f80d4
+ input itemset 0x7fff76eb7010 to 0x7fffb6ed7014
+Start Needleman-Wunsch
+Num of threads: 1
+Processing top-left matrix
+Processing bottom-right matrix
+Total time: 14.904 seconds
+#define PAD 0+4+4+4+4+4+4+4+4+4+4+4+4+4
+ referrence address 0x7fffb6e98010 to 0x7ffff71f80e4
+ input itemset 0x7fff76e77010 to 0x7fffb6e97014
+Start Needleman-Wunsch
+Num of threads: 1
+Processing top-left matrix
+Processing bottom-right matrix
+Total time: 13.600 seconds
+#define PAD 0+4+4+4+4+4+4+4+4+4+4+4+4+4+4
+ referrence address 0x7fffb6e58010 to 0x7ffff71f80f4
+ input itemset 0x7fff76e37010 to 0x7fffb6e57014
+Start Needleman-Wunsch
+Num of threads: 1
+Processing top-left matrix
+Processing bottom-right matrix
+Total time: 13.680 seconds
+#define PAD 0+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4
+ referrence address 0x7fffb6e18010 to 0x7ffff71f8104
+ input itemset 0x7fff76df7010 to 0x7fffb6e17014
+Start Needleman-Wunsch
+Num of threads: 1
+Processing top-left matrix
+Processing bottom-right matrix
+Total time: 13.361 seconds
+#define PAD 0+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4
+ referrence address 0x7fffb6dd8010 to 0x7ffff71f8114
+ input itemset 0x7fff76db7010 to 0x7fffb6dd7014
+Start Needleman-Wunsch
+Num of threads: 1
+Processing top-left matrix
+Processing bottom-right matrix
+Total time: 13.688 seconds
+#define PAD 0+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4
+ referrence address 0x7fffb6d98010 to 0x7ffff71f8124
+ input itemset 0x7fff76d77010 to 0x7fffb6d97014
+Start Needleman-Wunsch
+Num of threads: 1
+Processing top-left matrix
+Processing bottom-right matrix
+Total time: 13.677 seconds
+#define PAD 0+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4

@@ -1,0 +1,152 @@
+Client>> Monitoring  
+Client>> Monitoring myocyte.out 
+
+
+setting sampleing threashold to 1051 --------------------------> 
+for process
+event_name MEM_LOAD_UOPS_RETIRED:L1_MISS 
+The file was not opened for reading
+The file was not opened for reading
+Here are the addresses at which overflows occured and overflow vectors 
+--------------------------------------------------------------
+ThreadEventMap[MapIndex].totalOverflowEvents 11500000
+Error -3 PAPI_overflow_libmonitor.c:line 489: 
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+
+Reached end of the file
+Time spent in different stages of the application:
+0.000015000000 s, 0.000046772551 % : SETUP VARIABLES, READ COMMAND LINE ARGUMENTS
+0.024669000879 s, 0.076922133565 % : ALLOCATE MEMORY
+0.005621999968 s, 0.017530351877 % : READ DATA FROM FILES
+32.017700195312 s, 99.836639404297 % : RUN COMPUTATION
+0.022086000070 s, 0.068867906928 % : FREE MEMORY
+Total time:
+32.070091247559 s
+process 0 exiting--->how 1 
+
+The file was not opened for reading
+Error Papi stop reval -3
+real	0m34.439s
+user	0m28.376s
+sys	0m6.047s

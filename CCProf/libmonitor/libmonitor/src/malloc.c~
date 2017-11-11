@@ -1,0 +1,246 @@
+/*
+ *  Libmonitor malloc functions.
+ *
+ *  Copyright (c) 2007-2013, Rice University.
+ *  All rights reserved.
+ *
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions are
+ *  met:
+ *
+ *  * Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ *  * Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ *  * Neither the name of Rice University (RICE) nor the names of its
+ *    contributors may be used to endorse or promote products derived from
+ *    this software without specific prior written permission.
+ *
+ *  This software is provided by RICE and contributors "as is" and any
+ *  express or implied warranties, including, but not limited to, the
+ *  implied warranties of merchantability and fitness for a particular
+ *  purpose are disclaimed. In no event shall RICE or contributors be
+ *  liable for any direct, indirect, incidental, special, exemplary, or
+ *  consequential damages (including, but not limited to, procurement of
+ *  substitute goods or services; loss of use, data, or profits; or
+ *  business interruption) however caused and on any theory of liability,
+ *  whether in contract, strict liability, or tort (including negligence
+ *  or otherwise) arising in any way out of the use of this software, even
+ *  if advised of the possibility of such damage.
+ *
+ *  $Id: malloc.c 145 2015-01-15 Probir $
+ *
+ *  Override functions:
+ *
+ *    malloc
+ *    free
+ *
+ *  Support functions:
+ *
+ *    monitor_real_malloc
+ *    monitor_real_free
+ */
+
+#include "config.h"
+#include <dlfcn.h>
+#include <err.h>
+#include <errno.h>
+#include <stdio.h>
+
+#include <sys/types.h>
+
+#include "common.h"
+#include "monitor.h"
+
+/*
+ *----------------------------------------------------------------------
+ *  GLOBAL VARIABLES and EXTERNAL SYMBOLS
+ *----------------------------------------------------------------------
+ */
+
+typedef void *malloc_fcn_t(size_t);
+typedef void *calloc_fcn_t(size_t, size_t);
+typedef void *realloc_fcn_t(void *, size_t);
+typedef void *memalign_fcn_t(size_t, size_t);
+typedef void *valloc_fcn_t(size_t);
+typedef int  posix_memalign_fcn_t(void**, size_t, size_t);
+typedef void free_fcn_t(void *);
+
+
+#ifdef MONITOR_STATIC
+extern malloc_fcn_t __real_malloc;
+extern free_fcn_t __real_free;
+extern calloc_fcn_t __real_calloc;
+extern realloc_fcn_t __real_realloc;
+extern memalign_fcn_t __real_memalign;
+extern valloc_fcn_t __real_valloc;
+extern posix_memalign_fcn_t __real_posix_memalign;
+#endif
+
+static malloc_fcn_t   *real_malloc = NULL;
+static free_fcn_t  *real_free = NULL;
+static calloc_fcn_t *real_calloc = NULL;
+static realloc_fcn_t *real_realloc = NULL;
+static memalign_fcn_t *real_memalign = NULL;
+static valloc_fcn_t *real_valloc = NULL;
+static posix_memalign_fcn_t *real_posix_memalign = NULL;
+/*
+ *----------------------------------------------------------------------
+ *  INTERNAL HELPER FUNCTIONS
+ *----------------------------------------------------------------------
+ */
+void
+monitor_malloc_init(void)
+{
+    static int init_done = 0;
+    //sem_wait(&mutex);
+    if (init_done)
+    {
+	//sem_post(&mutex); 
+	return;
+    }
+    MONITOR_GET_REAL_NAME_WRAP(real_malloc, malloc);
+    MONITOR_GET_REAL_NAME_WRAP(real_free, free);
+    MONITOR_GET_REAL_NAME_WRAP(real_calloc, calloc);
+  //  MONITOR_GET_REAL_NAME_WRAP(real_realloc, realloc);
+   // MONITOR_GET_REAL_NAME_WRAP(real_memalign, memalign);
+   // MONITOR_GET_REAL_NAME_WRAP(real_valloc, valloc);
+   // MONITOR_GET_REAL_NAME_WRAP(real_posix_memalign, posix_memalign);
+    printf("came here in malloc init -----------> probir %p \n",real_malloc);
+	printf("came here in malloc init -----------> probir %p \n",real_calloc);
+    init_done = 1;
+    //sem_post(&mutex); 
+}
+
+/*
+ *----------------------------------------------------------------------
+ *  OVERRIDE and EXTERNAL FUNCTIONS
+ *----------------------------------------------------------------------
+ */
+
+/*
+ *  Client access to the real malloc() calloc() realloc() memalign() valloc() posix_memalign() and free().
+ */
+#if 0
+void *
+monitor_real_malloc(size_t size)
+{
+    monitor_malloc_init();
+    return (*real_malloc)(size);
+}
+
+void
+monitor_real_free(void *ptr)
+{
+    monitor_malloc_init();
+    return (*real_free)(ptr);
+}
+
+void *
+monitor_real_calloc(size_t nmemb, size_t size)
+{
+    monitor_malloc_init();
+    return (*real_calloc)(nmemb, size);
+}
+
+void *
+monitor_real_realloc(void *ptr, size_t size)
+{
+    monitor_malloc_init();
+    return (*real_realloc)(ptr, size);
+}
+
+void *
+monitor_real_memalign(size_t blocksize, size_t bytes)
+{
+    monitor_malloc_init();
+    return (*real_memalign)(blocksize, bytes);
+}
+
+void *
+monitor_real_valloc(size_t size)
+{
+    monitor_malloc_init();
+    return (*real_valloc)(size);
+}
+
+int
+monitor_real_posix_memalign(void** memptr, size_t alignment, size_t size)
+{
+    monitor_malloc_init();
+    return (*real_posix_memalign)(memptr, alignment, size);
+}
+#endif
+void *
+MONITOR_WRAP_NAME(malloc)(size_t size)
+{
+	void *ptr;
+	printf("Within custom malloc =========>probir \n");
+	monitor_pre_malloc(size);
+	ptr = (*real_malloc)(size);
+	monitor_post_malloc(size, ptr);
+	return (ptr);
+}
+
+void
+MONITOR_WRAP_NAME(free)(void *ptr)
+{
+	monitor_pre_free(ptr);
+   	(*real_free)(ptr);
+    	monitor_post_free(ptr);
+}
+
+#if 0
+void *
+MONITOR_WRAP_NAME(calloc)(size_t nmemb, size_t size)
+{
+    void *ptr;
+    monitor_pre_calloc(nmemb, size);
+    ptr = (*real_calloc)(nmemb, size);
+    monitor_post_calloc(nmemb, size, ptr);
+    return (ptr);
+}
+
+void *
+MONITOR_WRAP_NAME(realloc)(void *ptr, size_t size)
+{
+    void *ptrTmp;
+    monitor_pre_realloc(ptr, size);
+    ptrTmp = (*real_realloc)(ptr, size);
+    monitor_post_realloc(ptr, size, ptrTmp);
+    return (ptrTmp);
+}
+
+void *
+MONITOR_WRAP_NAME(memalign)(size_t blocksize, size_t bytes)
+{
+    void *ptr;
+    monitor_pre_memalign(blocksize, bytes);
+    ptr = (*real_memalign)(blocksize, bytes);
+    monitor_post_memalign(blocksize, bytes, ptr);
+    return (ptr);
+}
+
+void *
+MONITOR_WRAP_NAME(valloc)(size_t size)
+{
+    void *ptr;
+    monitor_pre_valloc(size);
+    ptr = (*real_valloc)(size);
+    monitor_post_valloc(size, ptr);
+    return (ptr);
+}
+
+int
+MONITOR_WRAP_NAME(posix_memalign)(void** memptr, size_t alignment, size_t size)
+{
+    int ret;
+    monitor_pre_posix_memalign(memptr, alignment, size);
+    ret = (*real_posix_memalign)(memptr, alignment, size);
+    monitor_post_posix_memalign(memptr, alignment, size, ret);
+    return (ret);
+}
+#endif

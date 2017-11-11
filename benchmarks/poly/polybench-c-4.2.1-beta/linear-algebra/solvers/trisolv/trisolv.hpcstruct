@@ -1,0 +1,257 @@
+<?xml version="1.0"?>
+<!DOCTYPE HPCToolkitStructure [
+<!-- ******************************************************************** -->
+<!-- HPCToolkit Structure DTD                                             -->
+<!-- Version 4.6                                                          -->
+<!-- ******************************************************************** -->
+
+<!ELEMENT HPCToolkitStructure (LM)*>
+<!ATTLIST HPCToolkitStructure
+	version CDATA #REQUIRED
+	i       CDATA #REQUIRED
+	n       CDATA #IMPLIED>
+  <!-- Load module: -->
+  <!--   (i)d: unique identifier for cross referencing -->
+  <!--   (n)ame -->
+  <!--   (l)ine range: "beg-end" (inclusive range) -->
+  <!--   (v)ma-range-set: "{[beg-end), [beg-end)...}" -->
+  <!ELEMENT LM (F|P)*>
+  <!ATTLIST LM
+	i CDATA #REQUIRED
+	n CDATA #REQUIRED
+	v CDATA #IMPLIED>
+  <!-- File: -->
+  <!ELEMENT F (P|L|S)*>
+  <!ATTLIST F
+	i CDATA #REQUIRED
+	n CDATA #REQUIRED>
+  <!-- Procedure: ln=link name (if different than name) -->
+  <!ELEMENT P (P|A|L|S|C)*>
+  <!ATTLIST P
+	i  CDATA #REQUIRED
+	n  CDATA #REQUIRED
+	ln CDATA #IMPLIED
+	l  CDATA #IMPLIED
+	v  CDATA #IMPLIED>
+  <!-- Alien: (f)ilename -->
+  <!ELEMENT A (A|L|S|C)*>
+  <!ATTLIST A
+	i CDATA #REQUIRED
+	f CDATA #IMPLIED
+	n CDATA #IMPLIED
+	ln CDATA #IMPLIED
+	l CDATA #IMPLIED
+	v CDATA #IMPLIED>
+  <!-- Loop -->
+  <!ELEMENT L (A|L|S|C)*>
+  <!ATTLIST L
+	i CDATA #REQUIRED
+	l CDATA #REQUIRED
+	f CDATA #IMPLIED
+	v CDATA #IMPLIED>
+  <!-- Statement -->
+  <!ELEMENT S (S)*>
+  <!ATTLIST S
+	i CDATA #REQUIRED
+	l CDATA #REQUIRED
+	v CDATA #IMPLIED>
+  <!-- Callsite (a special Statement) -->
+  <!ELEMENT C EMPTY>
+  <!ATTLIST C
+	i CDATA #REQUIRED
+	l CDATA #REQUIRED
+	v CDATA #IMPLIED>
+]>
+<HPCToolkitStructure i="0" version="4.6" n="">
+<LM i="2" n="/home/proy/cacheUtil/benchmarks/polybench-c-4.2.1-beta/linear-algebra/solvers/trisolv/trisolv" v="{}">
+  <F i="22" n="/home/proy/cacheUtil/benchmarks/polybench-c-4.2.1-beta/linear-algebra/solvers/trisolv/trisolv.c">
+    <P i="23" n="init_array" l="30-49" v="{[0x4007c0-0x400880)}">
+      <S i="167" l="30" v="{[0x4007c0-0x4007d3)}"/>
+      <L i="177" l="33" v="{[0x400872-0x400873)}" f="/home/proy/cacheUtil/benchmarks/polybench-c-4.2.1-beta/linear-algebra/solvers/trisolv/trisolv.c">
+        <S i="194" l="33" v="{[0x4007d3-0x4007df) [0x40086e-0x40087e)}"/>
+        <S i="178" l="35" v="{[0x4007df-0x400800)}"/>
+        <S i="185" l="36" v="{[0x400800-0x40081d)}"/>
+        <L i="198" l="37" v="{[0x400866-0x400867)}" f="/home/proy/cacheUtil/benchmarks/polybench-c-4.2.1-beta/linear-algebra/solvers/trisolv/trisolv.c">
+          <S i="216" l="37" v="{[0x40081d-0x400826) [0x400862-0x40086e)}"/>
+          <S i="199" l="38" v="{[0x400826-0x400862)}"/>
+        </L>
+      </L>
+      <S i="175" l="40" v="{[0x40087e-0x400880)}"/>
+    </P>
+    <P i="24" n="print_array" l="49-70" v="{[0x400880-0x400997)}">
+      <S i="220" l="49" v="{[0x400880-0x40088f)}"/>
+      <S i="225" l="52" v="{[0x40088f-0x4008ad)}"/>
+      <S i="231" l="53" v="{[0x4008ad-0x4008cb)}"/>
+      <L i="253" l="54" v="{[0x40094d-0x40094e)}" f="/home/proy/cacheUtil/benchmarks/polybench-c-4.2.1-beta/linear-algebra/solvers/trisolv/trisolv.c">
+        <S i="287" l="54" v="{[0x4008cb-0x4008d4) [0x400949-0x400959)}"/>
+        <S i="254" l="55" v="{[0x4008d4-0x40090d)}"/>
+        <S i="267" l="56" v="{[0x40090d-0x400949)}"/>
+      </L>
+      <S i="239" l="58" v="{[0x400959-0x400977)}"/>
+      <S i="245" l="59" v="{[0x400977-0x400995)}"/>
+      <S i="251" l="60" v="{[0x400995-0x400997)}"/>
+    </P>
+    <P i="25" n="kernel_trisolv" l="70-87" v="{[0x400997-0x400acd)}">
+      <S i="291" l="70" v="{[0x400997-0x4009aa)}"/>
+      <L i="301" l="74" v="{[0x400abf-0x400ac0)}" f="/home/proy/cacheUtil/benchmarks/polybench-c-4.2.1-beta/linear-algebra/solvers/trisolv/trisolv.c">
+        <S i="337" l="74" v="{[0x4009aa-0x4009b6) [0x400abb-0x400acb)}"/>
+        <S i="302" l="76" v="{[0x4009b6-0x4009e4)}"/>
+        <L i="341" l="77" v="{[0x400a62-0x400a63)}" f="/home/proy/cacheUtil/benchmarks/polybench-c-4.2.1-beta/linear-algebra/solvers/trisolv/trisolv.c">
+          <S i="371" l="77" v="{[0x4009e4-0x4009ed) [0x400a5e-0x400a6a)}"/>
+          <S i="342" l="78" v="{[0x4009ed-0x400a5e)}"/>
+        </L>
+        <S i="316" l="79" v="{[0x400a6a-0x400abb)}"/>
+      </L>
+      <S i="299" l="83" v="{[0x400acb-0x400acd)}"/>
+    </P>
+    <P i="26" n="main" l="87-120" v="{[0x400acd-0x400b98)}">
+      <S i="375" l="87" v="{[0x400acd-0x400adc)}"/>
+      <S i="380" l="89" v="{[0x400adc-0x400ae3)}"/>
+      <S i="381" l="92" v="{[0x400ae3-0x400af6)}"/>
+      <S i="385" l="93" v="{[0x400af6-0x400b09)}"/>
+      <S i="389" l="94" v="{[0x400b09-0x400b1c)}"/>
+      <S i="393" l="98" v="{[0x400b1c-0x400b32)}"/>
+      <S i="399" l="104" v="{[0x400b32-0x400b48)}"/>
+      <S i="405" l="112" v="{[0x400b48-0x400b6d)}"/>
+      <S i="417" l="115" v="{[0x400b6d-0x400b79)}"/>
+      <S i="420" l="116" v="{[0x400b79-0x400b85)}"/>
+      <S i="423" l="117" v="{[0x400b85-0x400b91)}"/>
+      <S i="426" l="119" v="{[0x400b91-0x400b96)}"/>
+      <S i="427" l="120" v="{[0x400b96-0x400b98)}"/>
+    </P>
+  </F>
+  <F i="27" n="/home/proy/cacheUtil/benchmarks/polybench-c-4.2.1-beta/utilities/polybench.c">
+    <P i="28" n="rtclock" l="84-113" v="{[0x400b98-0x400bac)}">
+      <S i="429" l="84" v="{[0x400b98-0x400b9c)}"/>
+      <S i="431" l="93" v="{[0x400b9c-0x400ba1)}"/>
+      <S i="432" l="95" v="{[0x400ba1-0x400bac)}"/>
+    </P>
+    <P i="29" n="polybench_flush_cache" l="113-354" v="{[0x400bac-0x400c4b)}">
+      <S i="436" l="113" v="{[0x400bac-0x400bb4)}"/>
+      <S i="439" l="114" v="{[0x400bb4-0x400bbb)}"/>
+      <S i="440" l="115" v="{[0x400bbb-0x400bd1)}"/>
+      <S i="446" l="117" v="{[0x400bd1-0x400bda)}"/>
+      <L i="463" l="121" v="{[0x400c0d-0x400c0e)}" f="/home/proy/cacheUtil/benchmarks/polybench-c-4.2.1-beta/utilities/polybench.c">
+        <S i="473" l="121" v="{[0x400bda-0x400be3) [0x400c09-0x400c15)}"/>
+        <S i="464" l="122" v="{[0x400be3-0x400c09)}"/>
+      </L>
+      <S i="450" l="123" v="{[0x400c15-0x400c3d)}"/>
+      <S i="458" l="124" v="{[0x400c3d-0x400c49)}"/>
+      <S i="461" l="125" v="{[0x400c49-0x400c4b)}"/>
+    </P>
+    <P i="30" n="polybench_prepare_instruments" l="354-365" v="{[0x400c4b-0x400c5b)}">
+      <S i="477" l="354" v="{[0x400c4b-0x400c4f)}"/>
+      <S i="479" l="356" v="{[0x400c4f-0x400c59)}"/>
+      <S i="481" l="361" v="{[0x400c59-0x400c5b)}"/>
+    </P>
+    <P i="31" n="polybench_timer_start" l="365-376" v="{[0x400c5b-0x400c89)}">
+      <S i="483" l="365" v="{[0x400c5b-0x400c63)}"/>
+      <S i="486" l="366" v="{[0x400c63-0x400c6d)}"/>
+      <S i="488" l="368" v="{[0x400c6d-0x400c87)}"/>
+      <S i="493" l="372" v="{[0x400c87-0x400c89)}"/>
+    </P>
+    <P i="32" n="polybench_timer_stop" l="376-389" v="{[0x400c89-0x400cad)}">
+      <S i="495" l="376" v="{[0x400c89-0x400c91)}"/>
+      <S i="498" l="378" v="{[0x400c91-0x400cab)}"/>
+      <S i="503" l="385" v="{[0x400cab-0x400cad)}"/>
+    </P>
+    <P i="33" n="polybench_timer_print" l="389-518" v="{[0x400cad-0x400cd6)}">
+      <S i="505" l="389" v="{[0x400cad-0x400cb1)}"/>
+      <S i="507" l="402" v="{[0x400cb1-0x400cd4)}"/>
+      <S i="513" l="407" v="{[0x400cd4-0x400cd6)}"/>
+    </P>
+    <P i="34" n="xmalloc" l="518-550" v="{[0x400cd6-0x400d5f)}">
+      <S i="515" l="518" v="{[0x400cd6-0x400ce2)}"/>
+      <S i="519" l="519" v="{[0x400ce2-0x400cea)}"/>
+      <S i="520" l="521" v="{[0x400cea-0x400cf8)}"/>
+      <S i="522" l="522" v="{[0x400cf8-0x400d0a)}"/>
+      <S i="526" l="524" v="{[0x400d0a-0x400d22)}"/>
+      <S i="532" l="525" v="{[0x400d22-0x400d31)}"/>
+      <S i="537" l="527" v="{[0x400d31-0x400d4f)}"/>
+      <S i="543" l="528" v="{[0x400d4f-0x400d59)}"/>
+      <S i="545" l="545" v="{[0x400d59-0x400d5d)}"/>
+      <S i="546" l="546" v="{[0x400d5d-0x400d5f)}"/>
+    </P>
+    <P i="35" n="polybench_free_data" l="550-560" v="{[0x400d5f-0x400d79)}">
+      <S i="548" l="550" v="{[0x400d5f-0x400d6b)}"/>
+      <S i="552" l="554" v="{[0x400d6b-0x400d77)}"/>
+      <S i="555" l="556" v="{[0x400d77-0x400d79)}"/>
+    </P>
+    <P i="36" n="polybench_alloc_data" l="560-571" v="{[0x400d79-0x400de0)}">
+      <S i="557" l="560" v="{[0x400d79-0x400d88)}"/>
+      <S i="562" l="566" v="{[0x400d88-0x400d90)}"/>
+      <S i="564" l="567" v="{[0x400d90-0x400da1)}"/>
+      <S i="569" l="568" v="{[0x400da1-0x400db1)}"/>
+      <S i="573" l="569" v="{[0x400db1-0x400dd7)}"/>
+      <S i="582" l="570" v="{[0x400dd7-0x400ddb)}"/>
+      <S i="583" l="571" v="{[0x400ddb-0x400ddd)}"/>
+    </P>
+  </F>
+  <F i="3" n="&lt;unknown file&gt;">
+    <P i="7" n="__assert_fail@plt" l="0" v="{[0x400640-0x400650)}">
+      <S i="57" l="0" v="{[0x400610-0x40061c) [0x400640-0x400650)}"/>
+    </P>
+    <P i="12" n="__gmon_start__@plt" l="0" v="{[0x400690-0x4006a0)}">
+      <S i="82" l="0" v="{[0x400610-0x40061c) [0x400690-0x4006a0)}"/>
+    </P>
+    <P i="38" n="__libc_csu_fini" l="0" v="{[0x400e50-0x400e54)}">
+      <S i="620" l="0" v="{[0x400e50-0x400e52)}"/>
+    </P>
+    <P i="37" n="__libc_csu_init" l="0" v="{[0x400de0-0x400e50)}">
+      <L i="612" l="0" v="{[0x400e20-0x400e21)}" f="">
+        <S i="613" l="0" v="{[0x400de0-0x400e45)}"/>
+      </L>
+    </P>
+    <P i="9" n="__libc_start_main@plt" l="0" v="{[0x400660-0x400670)}">
+      <S i="67" l="0" v="{[0x400610-0x40061c) [0x400660-0x400670)}"/>
+    </P>
+    <P i="39" n="_fini" l="0" v="{[0x400e54-0x400e5d)}">
+      <S i="621" l="0" v="{[0x400e54-0x400e5d)}"/>
+    </P>
+    <P i="4" n="_init" l="0" v="{[0x4005f0-0x40060a)}">
+      <S i="40" l="0" v="{[0x4005f0-0x40060a)}"/>
+    </P>
+    <P i="16" n="_start" l="0" v="{[0x4006d0-0x400700)}">
+      <S i="102" l="0" v="{[0x4006d0-0x4006fa)}"/>
+    </P>
+    <P i="10" n="calloc@plt" l="0" v="{[0x400670-0x400680)}">
+      <S i="72" l="0" v="{[0x400610-0x40061c) [0x400670-0x400680)}"/>
+    </P>
+    <P i="13" n="exit@plt" l="0" v="{[0x4006a0-0x4006b0)}">
+      <S i="87" l="0" v="{[0x400610-0x40061c) [0x4006a0-0x4006b0)}"/>
+    </P>
+    <P i="11" n="fprintf@plt" l="0" v="{[0x400680-0x400690)}">
+      <S i="77" l="0" v="{[0x400610-0x40061c) [0x400680-0x400690)}"/>
+    </P>
+    <P i="8" n="fputc@plt" l="0" v="{[0x400650-0x400660)}">
+      <S i="62" l="0" v="{[0x400610-0x40061c) [0x400650-0x400660)}"/>
+    </P>
+    <P i="5" n="free@plt" l="0" v="{[0x400620-0x400630)}">
+      <S i="47" l="0" v="{[0x400610-0x40061c) [0x400620-0x400630)}"/>
+    </P>
+    <P i="14" n="fwrite@plt" l="0" v="{[0x4006b0-0x4006c0)}">
+      <S i="92" l="0" v="{[0x400610-0x40061c) [0x4006b0-0x4006c0)}"/>
+    </P>
+    <P i="15" n="posix_memalign@plt" l="0" v="{[0x4006c0-0x4006d0)}">
+      <S i="97" l="0" v="{[0x400610-0x40061c) [0x4006c0-0x4006d0)}"/>
+    </P>
+    <P i="6" n="printf@plt" l="0" v="{[0x400630-0x400640)}">
+      <S i="52" l="0" v="{[0x400610-0x40061c) [0x400630-0x400640)}"/>
+    </P>
+  </F>
+  <F i="17" n="crtstuff.c">
+    <P i="20" n="__do_global_dtors_aux" l="0" v="{[0x400770-0x400790)}">
+      <S i="147" l="0" v="{[0x400770-0x40078c)}"/>
+    </P>
+    <P i="18" n="deregister_tm_clones" l="0" v="{[0x400700-0x400730)}">
+      <S i="114" l="0" v="{[0x400700-0x400729)}"/>
+    </P>
+    <P i="21" n="frame_dummy" l="0" v="{[0x400790-0x4007c0)}">
+      <S i="155" l="0" v="{[0x400790-0x4007b5) [0x4007b8-0x4007bd)}"/>
+    </P>
+    <P i="19" n="register_tm_clones" l="0" v="{[0x400730-0x400770)}">
+      <S i="128" l="0" v="{[0x400730-0x400769)}"/>
+    </P>
+  </F>
+</LM>
+</HPCToolkitStructure>

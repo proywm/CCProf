@@ -1,0 +1,1 @@
+(time OMP_NUM_THREADS=1 GOMP_CPU_AFFINITY="0" sh /home/proy/cacheUtil/node51/MemTool/memtoolrun_1SMT.sh  /home/proy/cacheUtil/benchmarks/rodinia_3.1/openmp/nn/nn /home/proy/cacheUtil/benchmarks/rodinia_3.1/openmp/nn/filelist_4 40000 130 19) &>  pebsTime

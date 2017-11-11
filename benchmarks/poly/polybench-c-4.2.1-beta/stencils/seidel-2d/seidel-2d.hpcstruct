@@ -1,0 +1,258 @@
+<?xml version="1.0"?>
+<!DOCTYPE HPCToolkitStructure [
+<!-- ******************************************************************** -->
+<!-- HPCToolkit Structure DTD                                             -->
+<!-- Version 4.6                                                          -->
+<!-- ******************************************************************** -->
+
+<!ELEMENT HPCToolkitStructure (LM)*>
+<!ATTLIST HPCToolkitStructure
+	version CDATA #REQUIRED
+	i       CDATA #REQUIRED
+	n       CDATA #IMPLIED>
+  <!-- Load module: -->
+  <!--   (i)d: unique identifier for cross referencing -->
+  <!--   (n)ame -->
+  <!--   (l)ine range: "beg-end" (inclusive range) -->
+  <!--   (v)ma-range-set: "{[beg-end), [beg-end)...}" -->
+  <!ELEMENT LM (F|P)*>
+  <!ATTLIST LM
+	i CDATA #REQUIRED
+	n CDATA #REQUIRED
+	v CDATA #IMPLIED>
+  <!-- File: -->
+  <!ELEMENT F (P|L|S)*>
+  <!ATTLIST F
+	i CDATA #REQUIRED
+	n CDATA #REQUIRED>
+  <!-- Procedure: ln=link name (if different than name) -->
+  <!ELEMENT P (P|A|L|S|C)*>
+  <!ATTLIST P
+	i  CDATA #REQUIRED
+	n  CDATA #REQUIRED
+	ln CDATA #IMPLIED
+	l  CDATA #IMPLIED
+	v  CDATA #IMPLIED>
+  <!-- Alien: (f)ilename -->
+  <!ELEMENT A (A|L|S|C)*>
+  <!ATTLIST A
+	i CDATA #REQUIRED
+	f CDATA #IMPLIED
+	n CDATA #IMPLIED
+	ln CDATA #IMPLIED
+	l CDATA #IMPLIED
+	v CDATA #IMPLIED>
+  <!-- Loop -->
+  <!ELEMENT L (A|L|S|C)*>
+  <!ATTLIST L
+	i CDATA #REQUIRED
+	l CDATA #REQUIRED
+	f CDATA #IMPLIED
+	v CDATA #IMPLIED>
+  <!-- Statement -->
+  <!ELEMENT S (S)*>
+  <!ATTLIST S
+	i CDATA #REQUIRED
+	l CDATA #REQUIRED
+	v CDATA #IMPLIED>
+  <!-- Callsite (a special Statement) -->
+  <!ELEMENT C EMPTY>
+  <!ATTLIST C
+	i CDATA #REQUIRED
+	l CDATA #REQUIRED
+	v CDATA #IMPLIED>
+]>
+<HPCToolkitStructure i="0" version="4.6" n="">
+<LM i="2" n="/home/proy/cacheUtil/benchmarks/polybench-c-4.2.1-beta/stencils/seidel-2d/seidel-2d" v="{}">
+  <F i="22" n="/home/proy/cacheUtil/benchmarks/polybench-c-4.2.1-beta/stencils/seidel-2d/seidel-2d.c">
+    <P i="23" n="init_array" l="28-43" v="{[0x4007c0-0x40083c)}">
+      <S i="167" l="28" v="{[0x4007c0-0x4007cb)}"/>
+      <L i="175" l="31" v="{[0x400832-0x400833)}" f="/home/proy/cacheUtil/benchmarks/polybench-c-4.2.1-beta/stencils/seidel-2d/seidel-2d.c">
+        <S i="178" l="31" v="{[0x4007cb-0x4007d4) [0x40082e-0x40083a)}"/>
+        <L i="182" l="32" v="{[0x400826-0x400827)}" f="/home/proy/cacheUtil/benchmarks/polybench-c-4.2.1-beta/stencils/seidel-2d/seidel-2d.c">
+          <S i="200" l="32" v="{[0x4007d4-0x4007dd) [0x400822-0x40082e)}"/>
+          <S i="183" l="33" v="{[0x4007dd-0x400822)}"/>
+        </L>
+      </L>
+      <S i="173" l="34" v="{[0x40083a-0x40083c)}"/>
+    </P>
+    <P i="24" n="print_array" l="43-64" v="{[0x40083c-0x400983)}">
+      <S i="204" l="43" v="{[0x40083c-0x40084b)}"/>
+      <S i="209" l="46" v="{[0x40084b-0x400869)}"/>
+      <S i="215" l="47" v="{[0x400869-0x400887)}"/>
+      <L i="237" l="48" v="{[0x400939-0x40093a)}" f="/home/proy/cacheUtil/benchmarks/polybench-c-4.2.1-beta/stencils/seidel-2d/seidel-2d.c">
+        <S i="240" l="48" v="{[0x400887-0x400893) [0x400935-0x400945)}"/>
+        <L i="244" l="49" v="{[0x400929-0x40092a)}" f="/home/proy/cacheUtil/benchmarks/polybench-c-4.2.1-beta/stencils/seidel-2d/seidel-2d.c">
+          <S i="284" l="49" v="{[0x400893-0x40089f) [0x400925-0x400935)}"/>
+          <S i="245" l="50" v="{[0x40089f-0x4008e7)}"/>
+          <S i="269" l="51" v="{[0x4008e7-0x400925)}"/>
+        </L>
+      </L>
+      <S i="223" l="53" v="{[0x400945-0x400963)}"/>
+      <S i="229" l="54" v="{[0x400963-0x400981)}"/>
+      <S i="235" l="55" v="{[0x400981-0x400983)}"/>
+    </P>
+    <P i="25" n="kernel_seidel_2d" l="64-80" v="{[0x400983-0x400b71)}">
+      <S i="288" l="64" v="{[0x400983-0x400991)}"/>
+      <L i="297" l="68" v="{[0x400b60-0x400b61)}" f="/home/proy/cacheUtil/benchmarks/polybench-c-4.2.1-beta/stencils/seidel-2d/seidel-2d.c">
+        <S i="300" l="68" v="{[0x400991-0x40099d) [0x400b5c-0x400b6f)}"/>
+        <L i="305" l="69" v="{[0x400b4d-0x400b4e)}" f="/home/proy/cacheUtil/benchmarks/polybench-c-4.2.1-beta/stencils/seidel-2d/seidel-2d.c">
+          <S i="308" l="69" v="{[0x40099d-0x4009a9) [0x400b49-0x400b5c)}"/>
+          <L i="313" l="70" v="{[0x400b3a-0x400b3b)}" f="/home/proy/cacheUtil/benchmarks/polybench-c-4.2.1-beta/stencils/seidel-2d/seidel-2d.c">
+            <S i="416" l="70" v="{[0x4009a9-0x4009b5) [0x400b36-0x400b49)}"/>
+            <S i="314" l="71" v="{[0x4009b5-0x400a42) [0x400b2c-0x400b36)}"/>
+            <S i="350" l="72" v="{[0x400a42-0x400aab)}"/>
+            <S i="379" l="73" v="{[0x400aab-0x400b2c)}"/>
+          </L>
+        </L>
+      </L>
+      <S i="295" l="76" v="{[0x400b6f-0x400b71)}"/>
+    </P>
+    <P i="26" n="main" l="80-110" v="{[0x400b71-0x400c00)}">
+      <S i="421" l="80" v="{[0x400b71-0x400b80)}"/>
+      <S i="426" l="82" v="{[0x400b80-0x400b87)}"/>
+      <S i="427" l="83" v="{[0x400b87-0x400b8e)}"/>
+      <S i="428" l="86" v="{[0x400b8e-0x400ba1)}"/>
+      <S i="432" l="90" v="{[0x400ba1-0x400bb2)}"/>
+      <S i="437" l="96" v="{[0x400bb2-0x400bc5)}"/>
+      <S i="443" l="104" v="{[0x400bc5-0x400bea)}"/>
+      <S i="455" l="107" v="{[0x400bea-0x400bf6)}"/>
+      <S i="458" l="109" v="{[0x400bf6-0x400bfb)}"/>
+      <S i="459" l="110" v="{[0x400bfb-0x400bfd)}"/>
+    </P>
+  </F>
+  <F i="27" n="/home/proy/cacheUtil/benchmarks/polybench-c-4.2.1-beta/utilities/polybench.c">
+    <P i="28" n="rtclock" l="84-113" v="{[0x400c00-0x400c14)}">
+      <S i="461" l="84" v="{[0x400c00-0x400c04)}"/>
+      <S i="463" l="93" v="{[0x400c04-0x400c09)}"/>
+      <S i="464" l="95" v="{[0x400c09-0x400c14)}"/>
+    </P>
+    <P i="29" n="polybench_flush_cache" l="113-354" v="{[0x400c14-0x400cb3)}">
+      <S i="468" l="113" v="{[0x400c14-0x400c1c)}"/>
+      <S i="471" l="114" v="{[0x400c1c-0x400c23)}"/>
+      <S i="472" l="115" v="{[0x400c23-0x400c39)}"/>
+      <S i="478" l="117" v="{[0x400c39-0x400c42)}"/>
+      <L i="495" l="121" v="{[0x400c75-0x400c76)}" f="/home/proy/cacheUtil/benchmarks/polybench-c-4.2.1-beta/utilities/polybench.c">
+        <S i="505" l="121" v="{[0x400c42-0x400c4b) [0x400c71-0x400c7d)}"/>
+        <S i="496" l="122" v="{[0x400c4b-0x400c71)}"/>
+      </L>
+      <S i="482" l="123" v="{[0x400c7d-0x400ca5)}"/>
+      <S i="490" l="124" v="{[0x400ca5-0x400cb1)}"/>
+      <S i="493" l="125" v="{[0x400cb1-0x400cb3)}"/>
+    </P>
+    <P i="30" n="polybench_prepare_instruments" l="354-365" v="{[0x400cb3-0x400cc3)}">
+      <S i="509" l="354" v="{[0x400cb3-0x400cb7)}"/>
+      <S i="511" l="356" v="{[0x400cb7-0x400cc1)}"/>
+      <S i="513" l="361" v="{[0x400cc1-0x400cc3)}"/>
+    </P>
+    <P i="31" n="polybench_timer_start" l="365-376" v="{[0x400cc3-0x400cf1)}">
+      <S i="515" l="365" v="{[0x400cc3-0x400ccb)}"/>
+      <S i="518" l="366" v="{[0x400ccb-0x400cd5)}"/>
+      <S i="520" l="368" v="{[0x400cd5-0x400cef)}"/>
+      <S i="525" l="372" v="{[0x400cef-0x400cf1)}"/>
+    </P>
+    <P i="32" n="polybench_timer_stop" l="376-389" v="{[0x400cf1-0x400d15)}">
+      <S i="527" l="376" v="{[0x400cf1-0x400cf9)}"/>
+      <S i="530" l="378" v="{[0x400cf9-0x400d13)}"/>
+      <S i="535" l="385" v="{[0x400d13-0x400d15)}"/>
+    </P>
+    <P i="33" n="polybench_timer_print" l="389-518" v="{[0x400d15-0x400d3e)}">
+      <S i="537" l="389" v="{[0x400d15-0x400d19)}"/>
+      <S i="539" l="402" v="{[0x400d19-0x400d3c)}"/>
+      <S i="545" l="407" v="{[0x400d3c-0x400d3e)}"/>
+    </P>
+    <P i="34" n="xmalloc" l="518-550" v="{[0x400d3e-0x400dc7)}">
+      <S i="547" l="518" v="{[0x400d3e-0x400d4a)}"/>
+      <S i="551" l="519" v="{[0x400d4a-0x400d52)}"/>
+      <S i="552" l="521" v="{[0x400d52-0x400d60)}"/>
+      <S i="554" l="522" v="{[0x400d60-0x400d72)}"/>
+      <S i="558" l="524" v="{[0x400d72-0x400d8a)}"/>
+      <S i="564" l="525" v="{[0x400d8a-0x400d99)}"/>
+      <S i="569" l="527" v="{[0x400d99-0x400db7)}"/>
+      <S i="575" l="528" v="{[0x400db7-0x400dc1)}"/>
+      <S i="577" l="545" v="{[0x400dc1-0x400dc5)}"/>
+      <S i="578" l="546" v="{[0x400dc5-0x400dc7)}"/>
+    </P>
+    <P i="35" n="polybench_free_data" l="550-560" v="{[0x400dc7-0x400de1)}">
+      <S i="580" l="550" v="{[0x400dc7-0x400dd3)}"/>
+      <S i="584" l="554" v="{[0x400dd3-0x400ddf)}"/>
+      <S i="587" l="556" v="{[0x400ddf-0x400de1)}"/>
+    </P>
+    <P i="36" n="polybench_alloc_data" l="560-571" v="{[0x400de1-0x400e50)}">
+      <S i="589" l="560" v="{[0x400de1-0x400df0)}"/>
+      <S i="594" l="566" v="{[0x400df0-0x400df8)}"/>
+      <S i="596" l="567" v="{[0x400df8-0x400e09)}"/>
+      <S i="601" l="568" v="{[0x400e09-0x400e19)}"/>
+      <S i="605" l="569" v="{[0x400e19-0x400e3f)}"/>
+      <S i="614" l="570" v="{[0x400e3f-0x400e43)}"/>
+      <S i="615" l="571" v="{[0x400e43-0x400e45)}"/>
+    </P>
+  </F>
+  <F i="3" n="&lt;unknown file&gt;">
+    <P i="7" n="__assert_fail@plt" l="0" v="{[0x400640-0x400650)}">
+      <S i="57" l="0" v="{[0x400610-0x40061c) [0x400640-0x400650)}"/>
+    </P>
+    <P i="12" n="__gmon_start__@plt" l="0" v="{[0x400690-0x4006a0)}">
+      <S i="82" l="0" v="{[0x400610-0x40061c) [0x400690-0x4006a0)}"/>
+    </P>
+    <P i="38" n="__libc_csu_fini" l="0" v="{[0x400ec0-0x400ec4)}">
+      <S i="652" l="0" v="{[0x400ec0-0x400ec2)}"/>
+    </P>
+    <P i="37" n="__libc_csu_init" l="0" v="{[0x400e50-0x400ec0)}">
+      <L i="644" l="0" v="{[0x400e90-0x400e91)}" f="">
+        <S i="645" l="0" v="{[0x400e50-0x400eb5)}"/>
+      </L>
+    </P>
+    <P i="9" n="__libc_start_main@plt" l="0" v="{[0x400660-0x400670)}">
+      <S i="67" l="0" v="{[0x400610-0x40061c) [0x400660-0x400670)}"/>
+    </P>
+    <P i="39" n="_fini" l="0" v="{[0x400ec4-0x400ecd)}">
+      <S i="653" l="0" v="{[0x400ec4-0x400ecd)}"/>
+    </P>
+    <P i="4" n="_init" l="0" v="{[0x4005f0-0x40060a)}">
+      <S i="40" l="0" v="{[0x4005f0-0x40060a)}"/>
+    </P>
+    <P i="16" n="_start" l="0" v="{[0x4006d0-0x400700)}">
+      <S i="102" l="0" v="{[0x4006d0-0x4006fa)}"/>
+    </P>
+    <P i="10" n="calloc@plt" l="0" v="{[0x400670-0x400680)}">
+      <S i="72" l="0" v="{[0x400610-0x40061c) [0x400670-0x400680)}"/>
+    </P>
+    <P i="13" n="exit@plt" l="0" v="{[0x4006a0-0x4006b0)}">
+      <S i="87" l="0" v="{[0x400610-0x40061c) [0x4006a0-0x4006b0)}"/>
+    </P>
+    <P i="11" n="fprintf@plt" l="0" v="{[0x400680-0x400690)}">
+      <S i="77" l="0" v="{[0x400610-0x40061c) [0x400680-0x400690)}"/>
+    </P>
+    <P i="8" n="fputc@plt" l="0" v="{[0x400650-0x400660)}">
+      <S i="62" l="0" v="{[0x400610-0x40061c) [0x400650-0x400660)}"/>
+    </P>
+    <P i="5" n="free@plt" l="0" v="{[0x400620-0x400630)}">
+      <S i="47" l="0" v="{[0x400610-0x40061c) [0x400620-0x400630)}"/>
+    </P>
+    <P i="14" n="fwrite@plt" l="0" v="{[0x4006b0-0x4006c0)}">
+      <S i="92" l="0" v="{[0x400610-0x40061c) [0x4006b0-0x4006c0)}"/>
+    </P>
+    <P i="15" n="posix_memalign@plt" l="0" v="{[0x4006c0-0x4006d0)}">
+      <S i="97" l="0" v="{[0x400610-0x40061c) [0x4006c0-0x4006d0)}"/>
+    </P>
+    <P i="6" n="printf@plt" l="0" v="{[0x400630-0x400640)}">
+      <S i="52" l="0" v="{[0x400610-0x40061c) [0x400630-0x400640)}"/>
+    </P>
+  </F>
+  <F i="17" n="crtstuff.c">
+    <P i="20" n="__do_global_dtors_aux" l="0" v="{[0x400770-0x400790)}">
+      <S i="147" l="0" v="{[0x400770-0x40078c)}"/>
+    </P>
+    <P i="18" n="deregister_tm_clones" l="0" v="{[0x400700-0x400730)}">
+      <S i="114" l="0" v="{[0x400700-0x400729)}"/>
+    </P>
+    <P i="21" n="frame_dummy" l="0" v="{[0x400790-0x4007c0)}">
+      <S i="155" l="0" v="{[0x400790-0x4007b5) [0x4007b8-0x4007bd)}"/>
+    </P>
+    <P i="19" n="register_tm_clones" l="0" v="{[0x400730-0x400770)}">
+      <S i="128" l="0" v="{[0x400730-0x400769)}"/>
+    </P>
+  </F>
+</LM>
+</HPCToolkitStructure>

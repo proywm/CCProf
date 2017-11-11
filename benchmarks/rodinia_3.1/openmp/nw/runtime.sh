@@ -1,0 +1,4 @@
+time OMP_NUM_THREADS=8 ./needle_O3 32768 10 8
+time OMP_NUM_THREADS=8 ./needle_O0 32768 10 8
+time OMP_NUM_THREADS=1 ./needle_O3 32768 10 1
+time OMP_NUM_THREADS=1 ./needle_O0 32768 10 1

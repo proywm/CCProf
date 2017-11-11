@@ -1,0 +1,31 @@
+prefix = /home/proy/CCProf/CCProf/PAPI/PAPI/install
+exec_prefix = ${prefix}
+PACKAGE_TARNAME = papi
+datadir = ${prefix}/share/${PACKAGE_TARNAME}
+testlibdir = $(datadir)/testlib
+INCLUDE = -I. -I${prefix}/include -I$(testlibdir)
+LIBDIR  = ${exec_prefix}/lib
+PAPILIB = $(LIBDIR)/libpapi.a
+TESTLIB = $(testlibdir)/libtestlib.a
+LDFLAGS = -ldl
+CC	= gcc
+F77	= gfortran
+CC_R	= $(CC) -pthread
+CFLAGS	=  -g -DSTATIC_PAPI_EVENTS_TABLE -DPEINCLUDE=\"libpfm4/include/perfmon/perf_event.h\" -D_REENTRANT -D_GNU_SOURCE -DUSE_COMPILER_TLS  -Wall 
+OMPCFLGS = -fopenmp
+UTILOBJS = $(TESTLIB)
+
+tests: $(NAME)_tests
+
+install:
+	@echo "$(NAME) tests (DATADIR) being installed in: \"$(DATADIR)\""; 
+	-mkdir -p $(DATADIR)/$(NAME)/tests
+	-chmod go+rx $(DATADIR)
+	-chmod go+rx $(DATADIR)/$(NAME)/tests
+	-find . -perm -100 -type f -exec cp {} $(DATADIR)/$(NAME)/tests \;
+	-chmod go+rx $(DATADIR)/$(NAME)/*
+	-find . -name "*.[ch]" -type f -exec cp {} $(DATADIR)/$(NAME)/tests \;
+	-cp Makefile $(DATADIR)/$(NAME)/tests
+	-cp ../../Makefile_comp_tests $(DATADIR)
+
+

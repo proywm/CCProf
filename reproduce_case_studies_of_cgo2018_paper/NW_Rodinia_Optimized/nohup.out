@@ -1,0 +1,119 @@
+/home/proy/CCProf/CCProf/../benchmarks/rodinia_3.1/openmp/nw_padded/
+g++ -g -O3 -fopenmp needle.cpp -o needle 
+make: *** No rule to make target `needle_offload', needed by `all'.  Stop.
+g++ -g -O3 -fopenmp needle.cpp -o needle 
+make: *** No rule to make target `needle_offload', needed by `all'.  Stop.
+Client>> Monitoring  
+0x00000000  0x00400040 9 12 0 0 0x00000000
+0xe80b8000  0xe80b8040 4 12 0 0 0x00000000
+0xf8515000 /home/proy/CCProf/CCProf/libPapiMonitor.so 0xf8515040 8 12 0 1 0xf891a7b8
+0xf82f1000 /home/proy/CCProf/CCProf/libmonitor/libmonitor/installDir/lib/libmonitor.so 0xf82f1040 7 12 0 0 0x00000000
+0xf80c2000 /usr/lib/x86_64-linux-gnu/libgomp.so.1 0xf80c2040 8 12 0 2 0xf891a740
+0xf7ea4000 /lib/x86_64-linux-gnu/libpthread.so.0 0xf7ea4040 9 12 0 0 0x00000000
+0xf7adf000 /lib/x86_64-linux-gnu/libc.so.6 0xf7adf040 10 12 0 3 0xf891a690
+0xf7887000 /home/proy/CCProf/CCProf/PAPI/PAPI/src/libpfm4/lib/libpapi.so.5 0xf7887040 8 12 0 4 0xf891a688
+0xf767f000 /lib/x86_64-linux-gnu/librt.so.1 0xf767f040 9 12 0 0 0x00000000
+0xf8720000 /lib64/ld-linux-x86-64.so.2 0xf8720040 7 12 0 0 0x00000000
+0xf747b000 /lib/x86_64-linux-gnu/libdl.so.2 0xf747b040 9 12 0 0 0x00000000
+0xf7098000 /home/proy/CCProf/CCProf/PAPI/PAPI/install/lib/libpfm.so.4 0xf7098040 7 12 0 0 0x00000000
+Client>> Monitoring needle_O0 
+STARTING NEW PROCESS ===============================================================>
+
+setting sampleing threashold to 1212 --------------------------> 
+for process
+event_name MEM_LOAD_UOPS_RETIRED:L1_MISS 
+Here are the addresses at which overflows occured and overflow vectors 
+--------------------------------------------------------------
+ThreadEventMap[MapIndex].totalOverflowEvents 11500000
+ referrence address 0x7f69b6ff7010 to 0x7f69f7097034
+ input itemset 0x7f6976f56010 to 0x7f69b6f76014
+Start Needleman-Wunsch
+Num of threads: 1
+Processing top-left matrix
+Processing bottom-right matrix
+Total time: 2.097 seconds
+process 0 exiting--->how 1 
+
+FINSHING  PROCESS ===============================================================> EXITINGvalues[0] -402096352
+.totalOverflowEvents 11500000
+The total no of overflows was 48791 for mapindex 0
+The total no of overflows recorded 48671
+Thread index 0 : event Count ------------------------------->48671
+ThreadEventMap[index:0].totalMallocEvents---------> 0
+came here--------------------------------------------->
+ThreadEventMap[index: 0].totalPEBSEventsInFreq---------> L1 Miss 48671
+finished here=============================================>
+
+wall time 4.001911s
+
+Clock time 4.005214s
+0x401780:
+/home/proy/CCProf/benchmarks/rodinia_3.1/openmp/nw_padded/needle.cpp:60
+0x4019c0:
+/home/proy/CCProf/benchmarks/rodinia_3.1/openmp/nw_padded/needle.cpp:191
+0x401a18:
+/home/proy/CCProf/benchmarks/rodinia_3.1/openmp/nw_padded/needle.cpp:262
+0x400e68:
+/home/proy/CCProf/benchmarks/rodinia_3.1/openmp/nw_padded/needle.cpp:191
+0x400e80:
+/home/proy/CCProf/benchmarks/rodinia_3.1/openmp/nw_padded/needle.cpp:191
+0x400ee0:
+/home/proy/CCProf/benchmarks/rodinia_3.1/openmp/nw_padded/needle.cpp:200
+0x400f40:
+/home/proy/CCProf/benchmarks/rodinia_3.1/openmp/nw_padded/needle.cpp:235
+0x401190:
+/home/proy/CCProf/benchmarks/rodinia_3.1/openmp/nw_padded/needle.cpp:231
+0x401350:
+/home/proy/CCProf/benchmarks/rodinia_3.1/openmp/nw_padded/needle.cpp:262
+0x401368:
+/home/proy/CCProf/benchmarks/rodinia_3.1/openmp/nw_padded/needle.cpp:264
+0x4013c0:
+/home/proy/CCProf/benchmarks/rodinia_3.1/openmp/nw_padded/needle.cpp:272
+0x401420:
+/home/proy/CCProf/benchmarks/rodinia_3.1/openmp/nw_padded/needle.cpp:296
+0x401678:
+/home/proy/CCProf/benchmarks/rodinia_3.1/openmp/nw_padded/needle.cpp:292
+0x401bb8:
+/home/proy/CCProf/benchmarks/rodinia_3.1/openmp/nw_padded/needle.cpp:361 (discriminator 3)
+0x401c20:
+/home/proy/CCProf/benchmarks/rodinia_3.1/openmp/nw_padded/needle.cpp:369 (discriminator 2)
+0x401c80:
+/home/proy/CCProf/benchmarks/rodinia_3.1/openmp/nw_padded/needle.cpp:372 (discriminator 2)
+0x401cd8:
+/home/proy/CCProf/benchmarks/rodinia_3.1/openmp/nw_padded/needle.cpp:377 (discriminator 3)
+0x401cf8:
+/home/proy/CCProf/benchmarks/rodinia_3.1/openmp/nw_padded/needle.cpp:378 (discriminator 2)
+0x401d50:
+/home/proy/CCProf/benchmarks/rodinia_3.1/openmp/nw_padded/needle.cpp:382 (discriminator 2)
+0x401e7b:
+/home/proy/CCProf/benchmarks/rodinia_3.1/openmp/nw_padded/needle.cpp:385 (discriminator 2)
+0x401f80:
+/home/proy/CCProf/benchmarks/rodinia_3.1/openmp/nw_padded/needle.cpp:188
+0x401ff0:
+/home/proy/CCProf/benchmarks/rodinia_3.1/openmp/nw_padded/needle.cpp:259
+0x4020d8:
+/home/proy/CCProf/benchmarks/rodinia_3.1/openmp/nw_padded/needle.cpp:410 (discriminator 1)
+0x402370:
+??:?
+/usr/local/lib/python2.7/dist-packages/sklearn/cross_validation.py:41: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
+  "This module will be removed in 0.20.", DeprecationWarning)
+/usr/local/lib/python2.7/dist-packages/sklearn/metrics/classification.py:1135: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+/usr/local/lib/python2.7/dist-packages/sklearn/metrics/classification.py:1135: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+(144, 4)
+Accuracy: 0.81 (+/- 0.48)
+roc_auc: 0.88 (+/- 0.66)
+average_precision: 0.94 (+/- 0.33)
+precision: 0.81 (+/- 0.70)
+recall: 0.88 (+/- 0.66)
+F1-score: 0.83 (+/- 0.67)
+CCPROF PREDICTS >>> ***  NO CONFLICT MISS     *** in loop(line: 200 :ip 0x400e80). Loop's contribution to total L1 miss: 22.97 percent
+CCPROF PREDICTS >>> ***  NO CONFLICT MISS     *** in loop(line: 217 :ip 0x400ee0). Loop's contribution to total L1 miss: 26.10 percent
+CCPROF PREDICTS >>> ***  NO CONFLICT MISS     *** in loop(line: 231 :ip 0x400f40). Loop's contribution to total L1 miss: 0.40 percent
+CCPROF PREDICTS >>> ***  NO CONFLICT MISS     *** in loop(line: 272 :ip 0x401368). Loop's contribution to total L1 miss: 23.20 percent
+CCPROF PREDICTS >>> ***  NO CONFLICT MISS     *** in loop(line: 282 :ip 0x4013c0). Loop's contribution to total L1 miss: 25.94 percent
+CCPROF PREDICTS >>> ***  NO CONFLICT MISS     *** in loop(line: 292 :ip 0x401420). Loop's contribution to total L1 miss: 0.42 percent
+CCPROF PREDICTS >>> ***     CONFLICT MISS     *** in loop(line: 360 :ip 0x401bb8) ***      BUT     *** loop contribution is ***    LOW    ***  0.00 percent
+CCPROF PREDICTS >>> ***     CONFLICT MISS     *** in loop(line: 377 :ip 0x401cf8) ***      BUT     *** loop contribution is ***    LOW    ***  0.66 percent
+CCPROF PREDICTS >>> ***     CONFLICT MISS     *** in loop(line: 408 :ip 0x4020d8) ***      BUT     *** loop contribution is ***    LOW    ***  0.06 percent

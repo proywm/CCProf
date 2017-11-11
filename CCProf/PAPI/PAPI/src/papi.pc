@@ -1,0 +1,11 @@
+prefix=/home/proy/CCProf/CCProf/PAPI/PAPI/install
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: PAPI
+Description: Performance API to access performance metrics on system
+Version: 5.5.1.0
+Libs: -L${libdir} -lpapi
+Libs.private: 
+Cflags: -I${includedir}

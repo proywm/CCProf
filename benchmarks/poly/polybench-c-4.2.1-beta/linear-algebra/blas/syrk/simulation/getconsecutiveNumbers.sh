@@ -1,0 +1,1 @@
+awk '{if(lastsec == $9){count++;if(count>0)n_+=count;}else{if(count>0){n++;n_++;printf " %d and n_ %d pos %d\n",count,n_,$11;};count=0;};lastsec=$9;total++;} END { printf "total samples %d consecutive groups %d consecutive sets %d\n",total,n,n_; }' sampledAccess_userspace

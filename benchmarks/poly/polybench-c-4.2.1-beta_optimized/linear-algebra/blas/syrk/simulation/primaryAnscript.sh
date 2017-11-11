@@ -1,0 +1,10 @@
+#/home/proy/MemTool/memtoolanalysisrun2 MemoryAllocationFree sampledAccess 2 > printInstWeight
+#/home/proy/MemTool/memtoolanalysisrun2 MemoryAllocationFree sampledAccess 3 > printEventCounts
+#/home/proy/MemTool/memtoolanalysisrun2 MemoryAllocationFree sampledAccess 4 > printInstCounts
+#/home/proy/MemTool/memtoolanalysisrun2 MemoryAllocationFree sampledAccess 5 > printAverageLatencyPerInst
+#/home/proy/MemTool/memtoolanalysisrun2 MemoryAllocationFree sampledAccess 6 > printContributionbySampleCountPerInst
+#/home/proy/cTool/MemTool/memtoolanalysisrun2 MemoryAllocationFree sampledAccess 11 > printContributionOfMemRegions
+#/home/proy/cTool/MemTool/memtoolanalysisrun2 MemoryAllocationFree sampledAccess 13 > printMemRegions
+#/home/proy/MemTool/memtoolanalysisrun2 MemoryAllocationFree sampledAccess 14 > printContributionByTotalWeightPerInst
+/home/proy/cTool/MemTool/memtoolanalysisrun2 MemoryAllocationFree targetSet 11 > printContributionOfMemRegions
+/home/proy/cTool/MemTool/memtoolanalysisrun2 MemoryAllocationFree targetSet 13 > printMemRegions
