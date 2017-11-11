@@ -9,4 +9,7 @@ sh buildAnalyzer.sh
 echo "export CCPROFDIR=$PWD" >> ~/.bashrc
 
 cd LoopAnalyzer
+git clone git://git.gnome.org/libxml2
+cd libxml2
+sh autogen.sh
 make
