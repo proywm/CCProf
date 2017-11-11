@@ -14,6 +14,7 @@ python2.7
 ### Software Depebdencies  #########
 cmake version 2.8.10 or later
 gcc (GCC) 4.8.5 or later
+intel MKL
 python2.7
 pip
 git client
