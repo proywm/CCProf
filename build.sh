@@ -13,3 +13,5 @@ git clone git://git.gnome.org/libxml2
 cd libxml2
 sh autogen.sh
 make
+cd ..
+make
