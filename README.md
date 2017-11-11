@@ -19,3 +19,6 @@ This will build CCProf and set CCPROFDIR flag to root directory of CCProf. You m
 >> source ~/.bashrc
 
 ### running? ###
+
+cacheStat
+Might need root priviladge to measure cache performance
