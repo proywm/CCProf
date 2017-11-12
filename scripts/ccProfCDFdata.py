@@ -65,7 +65,9 @@ cset = np.unique(sampleData[:,10], return_counts=False)
 #get shape of loopData
 ls = lid.shape
 #get shape of allocData
-csets = cset.shape
+#hardcoded; sometimes missing cache set does not produce plot
+csets = 64
+#cset.shape
 #for compulsary miss set RCD distance of INF
 INF=1000000
 #Set a threshold
@@ -95,8 +97,8 @@ for i in range(ls[0]):
 	belowThreshold = 0
         aboveThreshold = 0
 	sumAllSet = 0
-	cdfBufferAllSet = np.zeros(shape=(cset.shape[0]+1,2), dtype=float)
-	rcdBufferAllSet = np.zeros(shape=(cset.shape[0]+1,2), dtype=float)
+	cdfBufferAllSet = np.zeros(shape=(csets+1,2), dtype=float)
+	rcdBufferAllSet = np.zeros(shape=(csets+1,2), dtype=float)
 	#then filter by set
 	for k in range(cset.shape[0]):
 		#iterate over all samples within this set
