@@ -97,6 +97,8 @@ y4_1 = Tiny_DNN_representative_loop_noCCPROF
 y5_1 = Kripke_representative_loop_noCCPROF
 y6_1 = HimenoBMT_noCCPROF
 
+with open("overheadStat.txt", "w") as myfile:
+    myfile.write("\n####################################### CCProf Overhead  #####################################################\n")
 
 with open("overheadStat.txt", "a") as myfile:
     myfile.write("\nApplication\tCCProf-Overhead")
@@ -132,3 +134,6 @@ overheady6=y6/y6_1
 with open("overheadStat.txt", "a") as myfile:
     myfile.write("\nHimenoBMT\t"+"{:.2f}".format(overheady6)+"x")
 
+
+with open("overheadStat.txt", "a") as myfile:
+    myfile.write("\n##################################################################################################################\n")

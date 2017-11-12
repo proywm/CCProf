@@ -1,7 +1,7 @@
 BENCHMARK_RELATIVE_LOCATION=$CCPROFDIR/../benchmarks/rodinia_3.1/openmp/nw/
 BENCHMARK_BINARY=$BENCHMARK_RELATIVE_LOCATION/needle_O0
-mkdir workspace1
-cd workspace1
+mkdir workspace
+cd workspace
 
 echo "1212" > SampleRateThreshold
 cp SampleRateThreshold $BENCHMARK_RELATIVE_LOCATION

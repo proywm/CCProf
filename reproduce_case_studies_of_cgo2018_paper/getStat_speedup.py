@@ -98,6 +98,9 @@ y5_1 = Kripke_representative_loop_Optimized
 y6_1 = HimenoBMT_Optimized
 
 
+with open("speedupStat.txt", "w") as myfile:
+    myfile.write("\n####################################### Speedup after Optimization  #####################################################\n")
+
 with open("speedupStat.txt", "a") as myfile:
     myfile.write("\nApplication\tSpeedup")
 #
@@ -132,3 +135,6 @@ speedupy6=y6/y6_1
 with open("speedupStat.txt", "a") as myfile:
     myfile.write("\nHimenoBMT\t"+"{:.2f}".format(speedupy6)+"x")
 
+
+with open("speedupStat.txt", "a") as myfile:
+    myfile.write("\n#######################################################################################################################\n")

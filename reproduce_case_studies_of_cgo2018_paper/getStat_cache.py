@@ -98,6 +98,10 @@ y5_1 = Kripke_representative_loop_Optimized[:]
 y6_1 = HimenoBMT_Optimized[:]
 
 
+
+with open("cacheStat.txt", "w") as myfile:
+    myfile.write("\n####################################### cache miss reduction #####################################################\n")
+
 with open("cacheStat.txt", "a") as myfile:
     myfile.write("\nApplication\tL1-Miss-reduction\tL2-Miss-reduction\tLLC-Miss-reduction")
 #
@@ -144,3 +148,5 @@ LLC_Miss_reduction_y6=100*((y6[3]/y6[2])-(y6_1[3]/y6_1[2]))/(y6[3]/y6[2])
 with open("cacheStat.txt", "a") as myfile:
     myfile.write("\nHimenoBMT\t"+str(L1_Miss_reduction_y6)+"\t"+str(L2_Miss_reduction_y6)+"\t"+str(LLC_Miss_reduction_y6))
 
+with open("cacheStat.txt", "a") as myfile:
+    myfile.write("\n############################################################################################\n")

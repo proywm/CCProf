@@ -31,6 +31,6 @@ cp $CCPROFDIR/../modelInput/freq_1212.csv modelInput/model_training_input.csv
 sh convertscript.sh
 
 #performing CCProf analysis
-sed -i '/CDF_of_Loop_at/c\        filename = \"CDF_of_Loop_at_\" + str(loopLine)+\"_\"+str(i)' ccProfCDFdata.py
+sed -i '/CDF_of_Loop_at/c\        filename = \"CDF_of_Loop_at_\" + str(loopLine)+\"_\"+str(i)+"_"+str(sumThisSet)+"_"+cdfBufferAllSet[8,1]' ccProfCDFdata.py
 python ccProfCDFdata.py
 
