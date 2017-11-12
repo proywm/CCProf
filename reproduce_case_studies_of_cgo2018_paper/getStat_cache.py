@@ -103,50 +103,58 @@ with open("cacheStat.txt", "w") as myfile:
     myfile.write("\n####################################### cache miss reduction after transformation (compiler optimization level: -O3) #####################################################\n")
 
 with open("cacheStat.txt", "a") as myfile:
-    myfile.write("\nApplication\tL1-Miss-reduction\tL2-Miss-reduction\tLLC-Miss-reduction")
+    myfile.write("\nApplication\tL1-Load-reduction\tL1-Miss-reduction\tL2-Miss-reduction\tLLC-Miss-reduction")
 #
-L1_Miss_reduction_y1=100*((y1[1]/y1[0])-(y1_1[1]/y1_1[0]))/(y1[1]/y1[0])
-L2_Miss_reduction_y1=100*((y1[2]/y1[1])-(y1_1[2]/y1_1[1]))/(y1[2]/y1[1])
-LLC_Miss_reduction_y1=100*((y1[3]/y1[2])-(y1_1[3]/y1_1[2]))/(y1[3]/y1[2])
+L1_Load_reduction_y1 = 100*((y1[0]-y1_1[0])/y1[0])
+L1_Miss_reduction_y1=100*((y1[1]-y1_1[1])/y1[1])
+L2_Miss_reduction_y1=100*((y1[2]-y1_1[2])/y1[2])
+LLC_Miss_reduction_y1=100*((y1[3]-y1_1[3])/y1[3])
 with open("cacheStat.txt", "a") as myfile:
-    myfile.write("\nPoly-ADI\t"+str(L1_Miss_reduction_y1)+"\t"+str(L2_Miss_reduction_y1)+"\t"+str(LLC_Miss_reduction_y1))
-
-
-#
-L1_Miss_reduction_y2=100*((y2[1]/y2[0])-(y2_1[1]/y2_1[0]))/(y2[1]/y2[0])
-L2_Miss_reduction_y2=100*((y2[2]/y2[1])-(y2_1[2]/y2_1[1]))/(y2[2]/y2[1])
-LLC_Miss_reduction_y2=100*((y2[3]/y2[2])-(y2_1[3]/y2_1[2]))/(y2[3]/y2[2])
-with open("cacheStat.txt", "a") as myfile:
-    myfile.write("\nNW_Rodinia\t"+str(L1_Miss_reduction_y2)+"\t"+str(L2_Miss_reduction_y2)+"\t"+str(LLC_Miss_reduction_y2))
-
-#
-L1_Miss_reduction_y3=100*((y3[1]/y3[0])-(y3_1[1]/y3_1[0]))/(y3[1]/y3[0])
-L2_Miss_reduction_y3=100*((y3[2]/y3[1])-(y3_1[2]/y3_1[1]))/(y3[2]/y3[1])
-LLC_Miss_reduction_y3=100*((y3[3]/y3[2])-(y3_1[3]/y3_1[2]))/(y3[3]/y3[2])
-with open("cacheStat.txt", "a") as myfile:
-    myfile.write("\nmklFFT\t"+str(L1_Miss_reduction_y3)+"\t"+str(L2_Miss_reduction_y3)+"\t"+str(LLC_Miss_reduction_y3))
-
-#
-L1_Miss_reduction_y4=100*((y4[1]/y4[0])-(y4_1[1]/y4_1[0]))/(y4[1]/y4[0])
-L2_Miss_reduction_y4=100*((y4[2]/y4[1])-(y4_1[2]/y4_1[1]))/(y4[2]/y4[1])
-LLC_Miss_reduction_y4=100*((y4[3]/y4[2])-(y4_1[3]/y4_1[2]))/(y4[3]/y4[2])
-with open("cacheStat.txt", "a") as myfile:
-    myfile.write("\nTiny_DNN\t"+str(L1_Miss_reduction_y4)+"\t"+str(L2_Miss_reduction_y4)+"\t"+str(LLC_Miss_reduction_y4))
+    myfile.write("\nPoly-ADI\t"+str(L1_Load_reduction_y1)+"\t"+str(L1_Miss_reduction_y1)+"\t"+str(L2_Miss_reduction_y1)+"\t"+str(LLC_Miss_reduction_y1))
 
 
 #
-L1_Miss_reduction_y5=100*((y5[1]/y5[0])-(y5_1[1]/y5_1[0]))/(y5[1]/y5[0])
-L2_Miss_reduction_y5=100*((y5[2]/y5[1])-(y5_1[2]/y5_1[1]))/(y5[2]/y5[1])
-LLC_Miss_reduction_y5=100*((y5[3]/y5[2])-(y5_1[3]/y5_1[2]))/(y5[3]/y5[2])
+L1_Load_reduction_y2 = 100*((y2[0]-y2_1[0])/y2[0])
+L1_Miss_reduction_y2=100*((y2[1]-y2_1[1])/y2[1])
+L2_Miss_reduction_y2=100*((y2[2]-y2_1[2])/y2[2])
+LLC_Miss_reduction_y2=100*((y2[3]-y2_1[3])/y2[3])
 with open("cacheStat.txt", "a") as myfile:
-    myfile.write("\nKripke\t"+str(L1_Miss_reduction_y5)+"\t"+str(L2_Miss_reduction_y5)+"\t"+str(LLC_Miss_reduction_y5))
+    myfile.write("\nNW_Rodinia\t"+str(L1_Load_reduction_y2)+"\t"+str(L1_Miss_reduction_y2)+"\t"+str(L2_Miss_reduction_y2)+"\t"+str(LLC_Miss_reduction_y2))
 
 #
-L1_Miss_reduction_y6=100*((y6[1]/y6[0])-(y6_1[1]/y6_1[0]))/(y6[1]/y6[0])
-L2_Miss_reduction_y6=100*((y6[2]/y6[1])-(y6_1[2]/y6_1[1]))/(y6[2]/y6[1])
-LLC_Miss_reduction_y6=100*((y6[3]/y6[2])-(y6_1[3]/y6_1[2]))/(y6[3]/y6[2])
+L1_Load_reduction_y3 = 100*((y3[0]-y3_1[0])/y3[0])
+L1_Miss_reduction_y3=100*((y3[1]-y3_1[1])/y3[1])
+L2_Miss_reduction_y3=100*((y3[2]-y3_1[2])/y3[2])
+LLC_Miss_reduction_y3=100*((y3[3]-y3_1[3])/y3[3])
 with open("cacheStat.txt", "a") as myfile:
-    myfile.write("\nHimenoBMT\t"+str(L1_Miss_reduction_y6)+"\t"+str(L2_Miss_reduction_y6)+"\t"+str(LLC_Miss_reduction_y6))
+    myfile.write("\nmklFFT\t"+str(L1_Load_reduction_y3)+"\t"+str(L1_Miss_reduction_y3)+"\t"+str(L2_Miss_reduction_y3)+"\t"+str(LLC_Miss_reduction_y3))
+
+#
+L1_Load_reduction_y4 = 100*((y4[0]-y4_1[0])/y4[0])
+L1_Miss_reduction_y4=100*((y4[1]-y4_1[1])/y4[1])
+L2_Miss_reduction_y4=100*((y4[2]-y4_1[2])/y4[2])
+LLC_Miss_reduction_y4=100*((y4[3]-y4_1[3])/y4[3])
+with open("cacheStat.txt", "a") as myfile:
+    myfile.write("\nTiny_DNN\t"+str(L1_Load_reduction_y4)+"\t"+str(L1_Miss_reduction_y4)+"\t"+str(L2_Miss_reduction_y4)+"\t"+str(LLC_Miss_reduction_y4))
+
+
+
+#
+L1_Load_reduction_y5 = 100*((y5[0]-y5_1[0])/y5[0])
+L1_Miss_reduction_y5=100*((y5[1]-y5_1[1])/y5[1])
+L2_Miss_reduction_y5=100*((y5[2]-y5_1[2])/y5[2])
+LLC_Miss_reduction_y5=100*((y5[3]-y5_1[3])/y5[3])
+with open("cacheStat.txt", "a") as myfile:
+    myfile.write("\nKripke\t"+str(L1_Load_reduction_y5)+"\t"+str(L1_Miss_reduction_y5)+"\t"+str(L2_Miss_reduction_y5)+"\t"+str(LLC_Miss_reduction_y5))
+
+#
+L1_Load_reduction_y6 = 100*((y6[0]-y6_1[0])/y6[0])
+L1_Miss_reduction_y6=100*((y6[1]-y6_1[1])/y6[1])
+L2_Miss_reduction_y6=100*((y6[2]-y6_1[2])/y6[2])
+LLC_Miss_reduction_y6=100*((y6[3]-y6_1[3])/y6[3])
+
+with open("cacheStat.txt", "a") as myfile:
+    myfile.write("\nHimenoBMT\t"+str(L1_Load_reduction_y6)+"\t"+str(L1_Miss_reduction_y6)+"\t"+str(L2_Miss_reduction_y6)+"\t"+str(LLC_Miss_reduction_y6))
 
 with open("cacheStat.txt", "a") as myfile:
     myfile.write("\n############################################################################################\n")
