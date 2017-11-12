@@ -68,7 +68,10 @@ As instruction pointer(ip) varies over compilations and
 ambiguity of line numbers(e.g., MKLFFT), it may require to manually set the appropriate loop files to generate CCPROF_result/*.pdf files.
 
 ### Authors ###
-Probir Roy, Shuaiwen Leon Song, Sriram Krishnamoorthy and Xu Liu
+Probir Roy, College of William and Mary
+Shuaiwen Leon Song, Pacific Northwest National Laboratory
+Sriram Krishnamoorthy, Pacific Northwest National Laboratory
+Xu Liu, College of William and Mary
 
 ### Paper ###
 [CGO'18] "Lightweight Detection of Cache Conflicts"
