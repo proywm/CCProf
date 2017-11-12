@@ -14,7 +14,7 @@ Any of the following microarchitectures:
 * Intel Broadwell (verified)
 * Intel Haswell (verified)
     
-### Software Depebdencies  #########
+### Software Depebdencies  ###
 * cmake version 2.8.10 or later
 * gcc (GCC) 4.8.5 or later
 * intel MKL
@@ -29,7 +29,7 @@ python, pip and git can be installed on Ubuntu via:
 
 Software dependencies must be resolved before proceeding to the next step.
 
-### Build  #########
+### Build  ###
 You can install CCProf via
 `$ sh build.sh`
 
@@ -67,3 +67,8 @@ We donot expect absolute values to match with the paper, but we expect a similar
 As instruction pointer(ip) varies over compilations and
 ambiguity of line numbers(e.g., MKLFFT), it may require to manually set the appropriate loop files to generate CCPROF_result/*.pdf files.
 
+### Authors ###
+Probir Roy, Shuaiwen Leon Song, Sriram Krishnamoorthy and Xu Liu
+
+### Paper ###
+[CGO'18] "Lightweight Detection of Cache Conflicts"
