@@ -6,6 +6,8 @@ mkdir CCPROF_result
 cd CCPROF_result
 RESULTDIR=$PWD
 
+##########################################################  CCProf RCD calculation and prediction ###############
+
 cd $ReproduceBaseDIR
 cd ADI_PolyBench
 sh ccProf_run_and_cdf.sh
@@ -80,11 +82,7 @@ cd workspace
 python ccProfAnalysis.py > $RESULTDIR/Tiny_DNN_representative_loop_result
 cd $ReproduceBaseDIR
 
-#python plotCase.py
-
-#cp CCProfPredictionOnCaseStudies_Figure9.pdf $CCPROFDIR/../
-
-##################################################################################################################
+###################################################### Generate Performance Metrices ##########################################################
 cd $ReproduceBaseDIR
 
 cd ADI_PolyBench
@@ -135,7 +133,7 @@ cd Tiny_DNN_representative_loop
 sh ccProf_runtime_cache_stat.sh
 cd $ReproduceBaseDIR
 
-################################################################################################################
+############################################# Evaluation ###################################################
 
 python getStat_overhead.py
 python getStat_speedup.py
@@ -144,3 +142,10 @@ python getStat_cache.py
 
 
 cat *Stat.txt $RESULTDIR/CCProfPerformanceMetrics_table2.txt
+rm *Stat.txt
+
+################################################# plotting ##################################################
+cd $CCPROFDIR
+sh plot.sh
+
+echo "Results have been generated. Navigate to " + $RESULTDIR
