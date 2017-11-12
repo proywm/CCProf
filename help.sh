@@ -1,5 +1,8 @@
 RESULTDIR=$CCPROFDIR/CCPROF_result
 
+echo -e "==================== Before building  =========\n\n"
+echo -e "Make sure hardware and software dependencis are met. Read the ReadMe file for dependencies\n"
+
 echo -e "==================== How to build =========\n\n"
 echo -e "1. To build: sh build.sh\n"
 echo -e "2. Set environment variable: source ~/.bashrc\n"
