@@ -100,7 +100,7 @@ y6_1 = HimenoBMT_Optimized[:]
 
 
 with open("cacheStat.txt", "w") as myfile:
-    myfile.write("\n####################################### cache miss reduction #####################################################\n")
+    myfile.write("\n####################################### cache miss reduction after transformation (compiler optimization level: -O3) #####################################################\n")
 
 with open("cacheStat.txt", "a") as myfile:
     myfile.write("\nApplication\tL1-Miss-reduction\tL2-Miss-reduction\tLLC-Miss-reduction")

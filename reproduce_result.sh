@@ -134,18 +134,23 @@ sh ccProf_runtime_cache_stat.sh
 cd $ReproduceBaseDIR
 
 ############################################# Evaluation ###################################################
-
+rm $RESULTDIR/CCProfPerformanceMetrics_table2.txt
 python getStat_overhead.py
 python getStat_speedup.py
 python getStat_cache.py
 
 
 
-cat *Stat.txt $RESULTDIR/CCProfPerformanceMetrics_table2.txt
+cat *Stat.txt >> $RESULTDIR/CCProfPerformanceMetrics_table2.txt
 rm *Stat.txt
+
 
 ################################################# plotting ##################################################
 cd $CCPROFDIR
 sh plot.sh
 
-echo "Results have been generated. Navigate to " + $RESULTDIR
+echo "Results have been generated. Navigate to " $RESULTDIR
+echo "for Evaluation metrices, read file " $RESULTDIR/CCProfPerformanceMetrics_table2.txt
+cat $RESULTDIR/CCProfPerformanceMetrics_table2.txt
+echo "For figure 9 of the paper, navigate to " $RESULTDIR "/*.pdf"
+echo "To verify results of CCProf analysis navigate to " $RESULTDIR " and *result files(e.a, compare  ADI_PolyBench_result and ADI_PolyBench_Optimized_result) "

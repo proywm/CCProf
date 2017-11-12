@@ -98,7 +98,7 @@ y5_1 = Kripke_representative_loop_noCCPROF
 y6_1 = HimenoBMT_noCCPROF
 
 with open("overheadStat.txt", "w") as myfile:
-    myfile.write("\n####################################### CCProf Overhead  #####################################################\n")
+    myfile.write("\n####################################### CCProf Overhead (compiler optimization level : -O0) #####################################################\n")
 
 with open("overheadStat.txt", "a") as myfile:
     myfile.write("\nApplication\tCCProf-Overhead")

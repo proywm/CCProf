@@ -99,7 +99,7 @@ y6_1 = HimenoBMT_Optimized
 
 
 with open("speedupStat.txt", "w") as myfile:
-    myfile.write("\n####################################### Speedup after Optimization  #####################################################\n")
+    myfile.write("\n####################################### Speedup after code transformation (compiler optimization level : -O3) #####################################################\n")
 
 with open("speedupStat.txt", "a") as myfile:
     myfile.write("\nApplication\tSpeedup")
