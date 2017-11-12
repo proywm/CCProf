@@ -67,5 +67,3 @@ We donot expect absolute values to match with the paper, but we expect a similar
 As instruction pointer(ip) varies over compilations and
 ambiguity of line numbers(e.g., MKLFFT), it may require to manually set the appropriate loop files to generate CCPROF_result/*.pdf files.
 
-### Authors ###
-Probir Roy, Sriram Krishnamoorthy, Shuaiwen Leon Song and Xu Liu
