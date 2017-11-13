@@ -59,45 +59,6 @@ This will run all the experiments on the six benchmarks, perform post-processing
 evaluation and finally generate CCPROF_result/*.pdf, CCPROF_result/CCProfPerformanceMetrics table2.txt
 and CCPROF_result/*result files.
 
-### Individual Experiments ###
-You may prefer to run individual test case or evaluate a new application using CCProf. This section demonstrates how to customize scripts and run an application with CCProf.
-
-#### Setting up for new application ####
-To run a new application, navigate to reproduce_case_studies_of_cgo2018_paper directory, create an application directory and copy scripts from an example test case directory:
-
-`$ cd reproduce_case_studies_of_cgo2018_paper`
-
-`$ mkdir App`
-
-`$ cp ../ADI_PolyBench/*.sh .`
-
-#### configuration ####
-Go through the scripts and replace with appropriate path and parameters for the new application.
-
-* set path of the directory of the target application in BENCHMARK_RELATIVE_LOCATION 
-* set the path of the binary of the target application in BENCHMARK_BINARY*
-* set appropriate parameters of the target application
-
-To set sampling period, write to SampleRateThreshold as shown in the script:
-
-`$ echo "1212" > SampleRateThreshold`
-
-#### Run ####
-Once configured, run ccProf_run_and_analyze.sh for general CCProf analysis report
-`$sh ccProf_run_and_analyze.sh`
-
-CCProf will profile the target application and preprocess the generated files for post-mortem analysis and run analysis to identify cache conflict per loop. If you wish to generate CDF of RCD of each loop, navigate to workspace directory within target App directory and run:
-
-`$python ccProfCDFdata.py`
-
-This will generate the CDF_of_Loop_at_[N] files where N is the loop identifier.
-
-To get perfomrance statistics, navigate to the taget App directory and run ccProf_runtime_cache_stat.sh to get performance data(i.e., runtime, cache miss etc.)
-
-`$sh ccProf_runtime_cache_stat.sh`
- 
-This script will generate runtime_ccProf, runtime_without_ccProf, runtime_O3 and cacheStat_L1L_L1M_L2M_LLCM files in the workspace.
-
 ### Validation of results ###
 CCProf’s conflict miss analysis results are stored in
 CCPROF_result/*result files. Compare the CCProf’s
@@ -114,6 +75,63 @@ We donot expect absolute values to match with the paper, but we expect a similar
 
 As instruction pointer(ip) varies over compilations and
 ambiguity of line numbers(e.g., MKLFFT), it may require to manually set the appropriate loop files to generate CCPROF_result/*.pdf files.
+
+### Individual Experiments ###
+You may prefer to run individual test case or evaluate a new application using CCProf. This section demonstrates how to customize scripts and run an application with CCProf.
+
+#### Setting up for new application ####
+To run a new application, navigate to reproduce_case_studies_of_cgo2018_paper directory, create an application directory and copy scripts from an example test case directory:
+
+```
+$ cd reproduce_case_studies_of_cgo2018_paper
+$ mkdir App
+$ cp ../ADI_PolyBench/*.sh .
+```
+
+#### configuration ####
+Go through the scripts and replace with appropriate path and parameters for the new application.
+
+* set path of the directory of the target application in BENCHMARK_RELATIVE_LOCATION 
+* set the path of the binary of the target application in BENCHMARK_BINARY*
+* set appropriate parameters of the target application
+
+To set sampling period, write to SampleRateThreshold as shown in the script:
+
+`$ echo "1212" > SampleRateThreshold`
+
+#### Run ####
+Once configured, run ccProf_run_and_analyze.sh for general CCProf analysis report
+`$sh ccProf_run_and_analyze.sh`
+
+CCProf will profile the target application and preprocess the generated files for post-mortem analysis and run analysis to identify cache conflict per loop. For ADI benchmark, running this script gives following output:
+
+```
+CCPROF PREDICTS >>> ***     CONFLICT MISS     *** in LOOP(line: 102 :ip 0x400f6c) ***      AND     *** loop contribution is ***    HIGH    ***  94.26 percent
+
+CCPROF PREDICTS >>> ***  NO CONFLICT MISS     *** in loop(line: 108 :ip 0x401051). Loop's contribution to total L1 miss: 3.13 percent
+
+CCPROF PREDICTS >>> ***  NO CONFLICT MISS     *** in loop(line: 117 :ip 0x401282). Loop's contribution to total L1 miss: 0.86 percent
+
+CCPROF PREDICTS >>> ***  NO CONFLICT MISS     *** in loop(line: 122 :ip 0x401365). Loop's contribution to total L1 miss: 1.74 percent
+```
+
+You can identify the file and line number from the IP address:
+
+`$addr2line -e APP_BINARY 0xIP`
+
+If you wish to generate CDF of RCD of each loop, navigate to workspace directory within target App directory and run:
+
+`$python ccProfCDFdata.py`
+
+This will generate the CDF_of_Loop_at_[N] files where N is the loop identifier.
+
+To get perfomrance statistics, navigate to the taget App directory and run ccProf_runtime_cache_stat.sh to get performance data(i.e., runtime, cache miss etc.)
+
+`$sh ccProf_runtime_cache_stat.sh`
+ 
+This script will generate runtime_ccProf, runtime_without_ccProf, runtime_O3 and cacheStat_L1L_L1M_L2M_LLCM files in the workspace.
+
+
 
 ### Authors ###
 
