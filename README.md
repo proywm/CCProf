@@ -41,6 +41,15 @@ run the CCProf via
 
 `$ source ~/.bashrc`
 
+### Assumption ###
+We assume that you donot need sudo permission to access access native PAPI events(i.e., L1-DCACHE-LOADS, L1-DCACHE-LOAD-MISSES, LLC_MISSES and LLC_REFERENCES). 
+
+You can test this by running following command:
+
+`$CCPROFDIR/PAPI/PAPI/src/libpfm4/perf_examples/task -e L1-DCACHE-LOADS -e L1-DCACHE-LOAD-MISSES -e LLC_MISSES -e LLC_REFERENCES ls`
+
+If it returns with "Permission denied", you need to modify the cachestat scripts with sudo permission. 
+
 ### Running experimental workflows (reproducing result) ###
 To reproduce the results of the paper, run
 
@@ -49,6 +58,45 @@ To reproduce the results of the paper, run
 This will run all the experiments on the six benchmarks, perform post-processing, run
 evaluation and finally generate CCPROF_result/*.pdf, CCPROF_result/CCProfPerformanceMetrics table2.txt
 and CCPROF_result/*result files.
+
+### Individual Experiments ###
+You may prefer to run individual test case or evaluate a new application using CCProf. This section demonstrates how to customize scripts and run an application with CCProf.
+
+#### Setting up for new application ####
+To run a new application, navigate to reproduce_case_studies_of_cgo2018_paper directory, create an application directory and copy scripts from an example test case directory:
+
+`$ cd reproduce_case_studies_of_cgo2018_paper`
+
+`$ mkdir App`
+
+`$ cp ../ADI_PolyBench/*.sh .`
+
+#### configuration ####
+Go through the scripts and replace with appropriate path and parameters for the new application.
+
+* set path of the directory of the target application in BENCHMARK_RELATIVE_LOCATION 
+* set the path of the binary of the target application in BENCHMARK_BINARY*
+* set appropriate parameters of the target application
+
+To set sampling period, write to SampleRateThreshold as shown in the script:
+
+`$ echo "1212" > SampleRateThreshold`
+
+#### Run ####
+Once configured, run ccProf_run_and_analyze.sh for general CCProf analysis report
+`$sh ccProf_run_and_analyze.sh`
+
+CCProf will profile the target application and preprocess the generated files for post-mortem analysis and run analysis to identify cache conflict per loop. If you wish to generate CDF of RCD of each loop, navigate to workspace directory within target App directory and run:
+
+`$python ccProfCDFdata.py`
+
+This will generate the CDF_of_Loop_at_[N] files where N is the loop identifier.
+
+To get perfomrance statistics, navigate to the taget App directory and run ccProf_runtime_cache_stat.sh to get performance data(i.e., runtime, cache miss etc.)
+
+`$sh ccProf_runtime_cache_stat.sh`
+ 
+This script will generate runtime_ccProf, runtime_without_ccProf, runtime_O3 and cacheStat_L1L_L1M_L2M_LLCM files in the workspace.
 
 ### Validation of results ###
 CCProf’s conflict miss analysis results are stored in
