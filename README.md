@@ -42,7 +42,7 @@ run the CCProf via
 `$ source ~/.bashrc`
 
 ### Assumption ###
-We assume that you donot need sudo permission to access access native PAPI events(i.e., L1-DCACHE-LOADS, L1-DCACHE-LOAD-MISSES, LLC_MISSES and LLC_REFERENCES). 
+We assume that you donot need sudo permission to access native PAPI events(i.e., L1-DCACHE-LOADS, L1-DCACHE-LOAD-MISSES, LLC_MISSES and LLC_REFERENCES). 
 
 You can test this by running following command:
 
