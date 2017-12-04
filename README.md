@@ -19,6 +19,7 @@ Any of the following microarchitectures:
 * cmake version 2.8.10 or later
 * gcc (GCC) 4.8.5 or later
 * intel MKL
+* intel icc (for MKL benchmark)
 * Linux kernel 4.8.0 or later
 * git client
 * python2.7, pandas (0.19.2), numpy (1.12.0), pickleshare (0.7.4), plotly (2.2.1), sklearn, matplotlib (2.0.0)
