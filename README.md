@@ -11,6 +11,7 @@ up, overhead, cache miss reduction) of table 2.
 
 ### Hardware Prerequisite ###
 Any of the following microarchitectures:
+* Intel Skylake (verified)
 * Intel Broadwell (verified)
 * Intel Haswell (verified)
     
@@ -19,13 +20,8 @@ Any of the following microarchitectures:
 * gcc (GCC) 4.8.5 or later
 * intel MKL
 * Linux kernel 4.8.0 or later
-* python2.7
-* pip
 * git client
-
-python, pip and git can be installed on Ubuntu via:
-
-`$ sudo apt-get install python python-pip git`
+* python2.7, pandas (0.19.2), numpy (1.12.0), pickleshare (0.7.4), plotly (2.2.1), sklearn, matplotlib (2.0.0)
 
 Software dependencies must be resolved before proceeding to the next step.
 
