@@ -29,5 +29,5 @@ sh scripts/hpctoolkitInstall.sh
 
 ####################################### installing python modules ######################
 
-cd $INSTALLDIR
-sudo python scripts/pythonDependency.py
+#cd $INSTALLDIR
+#sudo python scripts/pythonDependency.py
