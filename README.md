@@ -11,9 +11,9 @@ up, overhead, cache miss reduction) of table 2.
 
 ### Hardware Prerequisite ###
 Any of the following microarchitectures:
-* Intel Skylake (verified)
-* Intel Broadwell (verified)
-* Intel Haswell (verified)
+* Intel Xeon Skylake (E3-1240v5) (verified)
+* Intel Xeon Broadwell (E7-4830v4) (verified)
+* Intel Xeon Haswell (E5-2699v3)(verified)
     
 ### Software Depebdencies  ###
 * cmake version 2.8.10 or later
