@@ -11,10 +11,11 @@ cd installDir
 HPCTOOLKITDIR_INSTALL_DIR=$PWD
 cd $HPCTOOLKITDIR
 
-git clone https://github.com/HPCToolkit/hpctoolkit.git
-git clone https://github.com/HPCToolkit/hpctoolkit-externals.git
+#git clone https://github.com/HPCToolkit/hpctoolkit.git
+#git clone https://github.com/HPCToolkit/hpctoolkit-externals.git
+git clone https://github.com/proywm/ccprof_hpctoolkit_deps.git
 
-cd hpctoolkit-externals
+cd ccprof_hpctoolkit_deps/hpctoolkit-externals
 mkdir BUILD && cd BUILD
 ../configure --prefix=$HPCTOOLKITDIR_INSTALL_DIR_EXTERNAL
 make -j32
@@ -22,7 +23,7 @@ make install
 make clean
 
 cd $HPCTOOLKITDIR
-cd hpctoolkit
+cd ccprof_hpctoolkit_deps/hpctoolkit
 mkdir BUILD && cd BUILD
 ../configure --prefix=$HPCTOOLKITDIR_INSTALL_DIR --with-externals=$HPCTOOLKITDIR_INSTALL_DIR_EXTERNAL
 make -j32
